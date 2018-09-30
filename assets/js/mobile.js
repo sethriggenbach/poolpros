@@ -22,13 +22,13 @@ $(document).ready(function(){
 
     $(window).on('resize', determineIfMobile); 
 
-    $('.close-mobile-nav').on('click', function(){
+    $('#top-header').on('click','.close-mobile-nav', function(){
         if (isMobileClient) {
             $('#navigation-main').hide();
         }
     });
 
-    $('#hamburger').on('click', function(){
+    $('#top-header').on('click','#hamburger', function(){
         if (isMobileClient) {
             $('#navigation-main').show();
         }
