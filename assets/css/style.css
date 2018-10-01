@@ -19,6 +19,10 @@ button, input[type="text"] {
   min-width: 0;
 }
 
+div {
+  box-sizing: border-box;
+}
+
 html, body {
     height: 100%;
     padding: 0;
@@ -41,7 +45,8 @@ a {
   text-decoration: none;
   color: var(--first-theme-color);
   font-weight: 800;
-  transition: .1s ease-in;
+  transition: .1s;
+  transition-timing-function: cubic-bezier(.04,.77,0,1.01);
 }
 a:hover {
   color:#216ddf;
@@ -62,15 +67,6 @@ main {
 }
 
 
-.content {
-  padding:5em;
-  color: white;
-  width:30%;
-  background-color: rgba(0,0,0,.5);
-}
-
-
-
 section {
   display:flex;
   flex-direction: row;
@@ -84,6 +80,13 @@ section {
   background-size: cover;
   background-color: white;
   min-height:80vh;
+}
+
+.content {
+  padding:5em;
+  color: white;
+  width:30%;
+  background-color: rgba(0,0,0,.5);
 }
 
 #hero-section {
@@ -101,10 +104,12 @@ section {
   padding:5em;
   background-color: rgba(255,255,255,.7);
   max-width:400px;
+  margin:10px;
 }
 
 #dealer-search-results-section{
   margin-top:100px;
+  justify-content: flex-start;
   flex-direction: column;
 }
 
@@ -204,12 +209,12 @@ section {
 .navigation-main-list-item {
   margin: 0px 20px;
   flex-shrink: 0;
-
 }
 
 .navigation-main-list-item a {
-  padding: 5px 5px;
-  transition: .3s ease-out;
+  padding: 5px;
+  transition: .3s;
+  transition-timing-function: cubic-bezier(0,.66,.04,1);
 }
 
 .navigation-main-list-item a:hover {
@@ -273,31 +278,18 @@ h1 {
 
 .icon-close::before {
   cursor:pointer;
-  content:'\2716';
 }
-
-
-.icon-email {
-  display:inline-block;
-  background-image:url('../images/icons/email-icon.png');
-  background-size: cover;
-  background-position: bottom;
-  margin:0 1em;
-  width:1em;
-  height:1em;
-}
-
 .icon-info::after {
-    cursor: pointer;
-    display: inline-block;
-    background-color: #e4e4e4;
-    content:'?';
-    color: var(--first-theme-color);
-    padding:.25em .75em;
-    margin:0 1em;
-    box-sizing: border-box;
-    font-size: 10px;
-    font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  background-color: #e4e4e4;
+  content:'?';
+  color: var(--first-theme-color);
+  padding:.25em .75em;
+  margin:0 1em;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-weight: bold;
 }
 
 .icon-phone-desktop::before {
@@ -589,6 +581,12 @@ p {
 
 @media (max-width: 800px)  {  /* Tablets and undrr */ 
 
+  #dealer-count-title {
+    margin-left:10px;
+    font-size:120%;
+    flex-grow:2;
+  }
+
   #filter-results-title {
     cursor:pointer;
     font-size:120%;
@@ -596,7 +594,7 @@ p {
     display:inline-block;
     background:white;
     border: 1px solid #d6d6d6; 
-    margin:0;
+    margin:0px 10px 0px auto;
   }
   #filter-results-title.expanded {
     border-bottom: none; 
@@ -655,8 +653,9 @@ p {
     margin-top:0;
     background:white;
     text-align:left;
-    width:90%;
+    width:inherit;
     border: 1px solid #d6d6d6; 
+    margin:0 10px;
   }
 
   #search-filter-list-wrapper.expanded {
