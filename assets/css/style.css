@@ -85,7 +85,7 @@ section {
 .content {
   padding:5em;
   color: white;
-  width:30%;
+  width:500px;
   background-color: rgba(0,0,0,.5);
 }
 
@@ -107,9 +107,11 @@ section {
 }
 
 #dealer-search-results-section{
-  margin-top:100px;
+  margin:100px auto;
+  max-width:1300px;
   justify-content: flex-start;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 #pools-and-spas-section {
@@ -192,6 +194,12 @@ section {
 }
 
 
+.dialog-box {
+
+}
+
+
+
 /* Main Nav */
 
 .navigation-main {
@@ -233,6 +241,7 @@ h1 {
 #mobile-navigation-close-icon {
   cursor:pointer;
   font-size:20px;
+  margin:10px;
   display:none;
 }
 
@@ -475,7 +484,6 @@ li.residential-pro::before {
 /* Dealer Search Form */
 
 #dealer-search-form {
-
   display: -webkibox;      
   display: -moz-box;         
   display: -ms-flexbox;     
@@ -541,6 +549,15 @@ input[type="text"],input[type="email"], textarea {
   height:100vh;
   width:100vw;
   z-index:8;
+  opacity:0;
+  visibility: hidden;
+  transition: all 1s cubic-bezier(0,.66,.04,1);
+}
+
+
+.modal-overlay.visible {
+  visibility: visible;
+  opacity:1;
 }
 
 /* Search Filters */
@@ -598,10 +615,7 @@ input[type="text"],input[type="email"], textarea {
 .dialog-header {
   background-color:#083d8c;
   padding:10px;
-}
-
-.dialog-header * {
-  color: #ffffff;
+  color:white;
 }
 
 #contact-form {
@@ -610,6 +624,9 @@ input[type="text"],input[type="email"], textarea {
   background-color: var(--third-theme-color);
 }
 #contact-form-close {
+  float:right;
+}
+#commercial-services-dialog-close {
   float:right;
 }
 .hidden {
@@ -635,7 +652,7 @@ p {
 
 .checkbox {
   display: inline-block;
-  margin-right:10px;
+  margin:5px 10px;
 }
 
 .checkbox input[type="checkbox"] {
@@ -752,6 +769,8 @@ p {
     left: 10%;
     transform: translate(-5%, -5%);
     position:fixed;
+  
+
   }
 
   #top-header {
@@ -825,23 +844,18 @@ p {
   .navigation-main-list-item {
     display:block;
     margin:2px 0;
+
   }
   
   .navigation-main-list-item a {
     color: #939393;
     display:block;
-    height:100%;
     width:100%;
     font-size:20px;
     background-color: #e6e6e6;
     font-weight:400;
-
+    padding:20px;
    }
-
-   .navigation-main-list-item a:hover {
-
-   }
-
 
  #hamburger {
     display:block;

@@ -146,8 +146,36 @@
                 dealerName = $(this).attr('data-dealer-name');
                 
                 $('.contact-form-dealer-name-placeholder').text(dealerName);
-                $('#contact-form-dialog').show();
+                $('#contact-form-dialog').addClass("visible");
             });
+
+            
+            $('.dealer-contact-button').on('click',function(){
+                dealerName = $(this).attr('data-dealer-name');
+                
+                $('.contact-form-dealer-name-placeholder').text(dealerName);
+                $('#contact-form-dialog').addClass("visible");
+            });
+
+            document.getElementById('contact-form-close').addEventListener("click", function(){
+                $('#contact-form-dialog').removeClass("visible")
+            }); 
+
+            $('#load-commercial-services-dialog').on('click',function(){
+                $('#commercial-services-dialog').addClass("visible");
+            });
+
+            $('#commercial-services-dialog-close').on('click',function(){
+                $('#commercial-services-dialog').removeClass("visible");
+            });
+
+           $('.modal-overlay').on('click', function(e){
+               $(this).removeClass('visible');
+           });
+
+           $('.modal-overlay *').on('click', function(e){
+            e.stopPropagation();
+        });
     
     }
 

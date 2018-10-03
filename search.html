@@ -19,9 +19,23 @@
 <body>
     <div id="top-header" class="dropshadow"></div>
 
+
+
+    <!-- Commercial Dialog Box -->
+
+    <div class="modal-overlay" id="commercial-services-dialog">
+        <div class="dialog">
+            <div class="dialog-header">
+                <span class="icon-close ss-delete" id="commercial-services-dialog-close"></span>
+                <h4>Commercial Services</h4>
+            </div>
+            <p class="centered">These dealers offer unique commercial services not available anywhere else!</p>
+        </div>
+    </div>
+
     <!-- Contact Form -->
 
-    <div class="modal-overlay hidden" id="contact-form-dialog">
+    <div class="modal-overlay" id="contact-form-dialog">
         <div class="dialog">
             <div class="dialog-header">
                 <span class="icon-close ss-delete" id="contact-form-close"></span>
@@ -96,7 +110,7 @@
                             <label for="commercial-pro-checkbox" class="bold">Commercial</label>
                         </div>
                         
-                        <span class="icon-info tooltip" title="Use these filters to narrow your search results by services offered"></span>
+                        <span class="icon-info" id="load-commercial-services-dialog"></span>
                     </li>
                     
                 </ul>
@@ -114,7 +128,6 @@
     <script src="assets/js/lib/jquery-3.3.1.min.js" type="text/javascript"></script>
     <script src="assets/js/header-footer.js" type="text/javascript"></script>
     <script src="assets/js/dealer-search.js" type="text/javascript"></script>
-    <script src="assets/js/index.js" type="text/javascript"></script>
     <script src="assets/js/mobile.js" type="text/javascript"></script>
 
 
