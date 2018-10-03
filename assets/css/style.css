@@ -6,6 +6,7 @@
   --second-theme-color: #216ddf;
   --third-theme-color: #f6f6f6;
   --fourth-theme-color: #c2c2c2;
+  --fifth-theme-color: #00b0c7;
   --theme-border-radius: 5px;
 }
 
@@ -27,6 +28,10 @@ html, body {
     height: 100%;
     padding: 0;
     margin: 0;
+}
+
+input:invalid {
+  box-shadow: none !important;
 }
 
 body {
@@ -194,12 +199,6 @@ section {
 }
 
 
-.dialog-box {
-
-}
-
-
-
 /* Main Nav */
 
 .navigation-main {
@@ -240,9 +239,9 @@ h1 {
 /* Mobile Nav */
 #mobile-navigation-close-icon {
   cursor:pointer;
-  font-size:20px;
-  margin:10px;
+  font-size:24px;
   display:none;
+  padding:10px 15px;
 }
 
 #hamburger {
@@ -333,16 +332,6 @@ h1 {
   max-width: 150px;
   min-width: 75px;
   width:100%;
-}
-
-.icon-form-validation {
-  display:inline-block;
-  vertical-align: middle;
-  width:20px;
-  height:20px;
-  background-position: center;
-  background-size:contain;
-  background-repeat:no-repeat;
 }
 
 li.service-pro::before, li.installation-pro::before, li.commercial-pro::before, li.residential-pro::before {
@@ -522,26 +511,41 @@ li.residential-pro::before {
 /* Contact Form */
 
 
+#contact-form label, input {
+  margin:10px 0;
+}
+
 input[type="text"],input[type="email"], textarea {
-  border:1px solid var(--fourth-theme-color) ;
+  height:43px;
   padding:10px;
   font-size:120%;
   width: 100%;
   box-sizing:border-box;
+  border:1px solid var(--fourth-theme-color) ;
 }
 
 #contact-form input[type="text"]:invalid + span, #contact-form input[type="email"]:invalid + span {
     background-image: url("../images/forms/circle-form.png");
-    
-    /* content:"TESTER"; */
+    border:0;
 }
 
 #contact-form input[type="text"]:valid + span, #contact-form input[type="email"]:valid + span {
   background-image: url("../images/forms/checkmark-circle.png");
-  /* content:"TESTER"; */
 }
 
 
+.icon-form-validation {
+  display:inline-block;
+  vertical-align: middle;
+  width:20px;
+  height:20px;
+  background-position: center;
+  background-size:contain;
+  background-repeat:no-repeat;
+  float:right;
+  top:-80px;
+  position: relative;
+}
 
 .modal-overlay {
   background-color: rgba(0,0,0,.7);
@@ -715,6 +719,44 @@ p {
   border:1px dotted black;
 }
 
+/* Custom Radio Buttons */ 
+
+.radio-button {
+  display: inline-block;
+  margin:5px 5px;
+}
+
+.radio-button input[type="radio"] {
+  position:absolute;
+  left:-9999px;
+}
+
+.radio-button label {
+  display: inline-block;
+  padding:3px 20px;
+  border: 3px solid grey;
+  border-radius:5px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+
+/*Hide the checkmark by default*/
+.radio-button input[type="radio"] + label {
+  background-color:#efefef;
+}
+
+/*Unhide on the checked state*/
+.radio-button input[type="radio"]:checked + label {
+  background-color:var(--fifth-theme-color);
+  color:white;
+}
+
+/* Focus style for accessibility*/
+.radio-button input[type="radio"]:focus + label, .radio-button input[type="radio"] + label:hover  {
+  border: 3px solid rgb(65, 65, 65);
+}
+
 .mobile-only {
   display:none;
 }
@@ -774,8 +816,6 @@ p {
     left: 10%;
     transform: translate(-5%, -5%);
     position:fixed;
-  
-
   }
 
   #top-header {
@@ -875,72 +915,3 @@ p {
 
 }
 
-
-/* Custom Checkboxes 
-
-.checkbox {
-  display: inline-block;
-  margin-right:10px;
-}
-
-.checkbox input[type="checkbox"] {
-  position:absolute;
-  left:-9999px;
-}
-
-.checkbox label {
-  position: relative;
-  display: inline-block;
-  
-  /*16px width of fake checkbox + 6px distance between fake checkbox and text
-  padding-left: 22px;
-}
-
-.checkbox label::before,
-.checkbox label::after {
-  position: absolute;
-  content: "";
-  
-  /*Needed for the line-height to take effect
-  display: inline-block;
-}
-
-/*Outer box of the fake checkbox
-.checkbox label::before{
-  height: 12px;
-  width: 12px;
-  
-  border: 4px solid;
-  left: 0px;
-  border-radius:5px;
-  top: 0px;
-}
-
-/* Check Mark 
-
-.checkbox label::after {
-  height: 12px;
-  width: 12px;
-  
-  border: 4px solid var(--second-theme-color);
-  border-radius:5px;
-  left: 0px;
-  top: 0px;
-}
-
-/*Hide the checkmark by default
-.checkbox input[type="checkbox"] + label::after {
-  content: none;
-}
-
-/*Unhide on the checked state
-.checkbox input[type="checkbox"]:checked + label::after {
-  content: "";
-}
-
-/* Focus style for accessibility
-.checkbox input[type="checkbox"]:focus + label::before {
-  border:4px solid rgb(173, 173, 173);
-}
-
-*/
