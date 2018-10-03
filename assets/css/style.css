@@ -715,11 +715,16 @@ p {
   border:1px dotted black;
 }
 
+.mobile-only {
+  display:none;
+}
 
 
 
 @media (max-width: 800px)  {  /* Tablets and underrrrrrrr */ 
-
+  .mobile-only {
+    display:block;
+  }
   #dealer-count-title {
     margin-left:10px;
     font-size:120%;
