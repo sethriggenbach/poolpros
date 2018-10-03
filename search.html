@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
 
@@ -31,14 +31,18 @@
             <p>Fill out the form below and <span class="contact-form-dealer-name-placeholder"></span> will get in touch!</p>
             <form id="contact-form">
  
-                <label for="contact-form-name-input">First and Last Name</label>
-                <input type="text" id="contact-form-name-input" required>
+                <label for="contact-form-name-input">
+                    First and Last Name
+                    <input type="text" id="contact-form-name-input" required> <span class="icon-form-validation"></span>
+                </label>
 
-                <label for="contact-form-phone-input">Phone Number</label>
-                <input type="text" id="contact-form-phone-input" required>
+                <label for="contact-form-phone-input">Phone Number
+                    <input type="text" id="contact-form-phone-input" required><span class="icon-form-validation"></span>
+                </label>
 
-                <label for="contact-form-email-input">Email Address</label>
-                <input type="email" id="contact-form-email-input" required>
+                <label for="contact-form-email-input">Email Address
+                    <input type="email" id="contact-form-email-input" required><span class="icon-form-validation"></span>
+                </label>
 
                 <label for="contact-form-comments-input">Comments or Questions</label>
                 <textarea id="contact-form-comments-input"></textarea>
@@ -67,21 +71,31 @@
 
                     <h2 id="filter-results-title">Filter Results</h2>
                     <ul id="search-filter-list-wrapper">
-                    <li class="search-filter-list-item" >
-                        <input type="checkbox" class="filter-checkbox" value="service-pro" id="service-pro-checkbox">
-                        <label for="service-pro-checkbox" class="bold">Service</label>
+                    <li class="search-filter-list-item">
+                        <div class="checkbox">
+                            <input type="checkbox" class="filter-checkbox" value="service-pro" id="service-pro-checkbox">
+                            <label for="service-pro-checkbox" class="bold">Service</label>
+                        </div>
                     </li>
                     <li class="search-filter-list-item">
-                        <input type="checkbox" class="filter-checkbox" value="installation-pro" id="installation-pro-checkbox">
-                        <label for="installation-pro-checkbox" class="bold">Installation</label>
+                        <div class="checkbox">
+                            <input type="checkbox" class="filter-checkbox" value="installation-pro" id="installation-pro-checkbox">
+                            <label for="installation-pro-checkbox" class="bold">Installation</label>
+                        </div>
                     </li>
                     <li class="search-filter-list-item">
-                        <input type="checkbox" class="filter-checkbox" value="residential-pro" id="residential-pro-checkbox">
-                        <label for="residential-pro-checkbox" class="bold">Residential</label>
+                        <div class="checkbox">
+                            <input type="checkbox" class="filter-checkbox" value="residential-pro" id="residential-pro-checkbox">
+                            <label for="residential-pro-checkbox" class="bold">Residential</label>
+                        </div>
                     </li>
+
                     <li class="search-filter-list-item">
-                    	<input type="checkbox" class="filter-checkbox" value="commercial-pro" id="commercial-pro-checkbox" >
-                        <label for="commercial-pro-checkbox" class="bold">Commercial</label>
+                        <div class="checkbox">
+                            <input type="checkbox" class="filter-checkbox" value="commercial-pro" id="commercial-pro-checkbox" >
+                            <label for="commercial-pro-checkbox" class="bold">Commercial</label>
+                        </div>
+                        
                         <span class="icon-info tooltip" title="Use these filters to narrow your search results by services offered"></span>
                     </li>
                     

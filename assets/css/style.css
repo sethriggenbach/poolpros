@@ -3,7 +3,7 @@
 
 :root {
   --first-theme-color: #083d8c;
-  --second-theme-color: #4275B0;
+  --second-theme-color: #216ddf;
   --third-theme-color: #f6f6f6;
   --fourth-theme-color: #c2c2c2;
   --theme-border-radius: 5px;
@@ -30,9 +30,9 @@ html, body {
 }
 
 body {
+  font-family:'OpenSans', Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  font-family:'OpenSans', Arial, sans-serif;
   color: #696969;
   font-size:70%;
 }
@@ -49,7 +49,7 @@ a {
   transition-timing-function: cubic-bezier(.04,.77,0,1.01);
 }
 a:hover {
-  color:#216ddf;
+  color:var(--second-theme-color);
 }
 ul {
   list-style: none;
@@ -103,7 +103,6 @@ section {
 #dealer-locator-container {
   padding:5em;
   background-color: rgba(255,255,255,.7);
-  max-width:400px;
   margin:10px;
 }
 
@@ -327,7 +326,44 @@ h1 {
   width:100%;
 }
 
+.icon-form-validation {
+  display:inline-block;
+  vertical-align: middle;
+  width:20px;
+  height:20px;
+  background-position: center;
+  background-size:contain;
+  background-repeat:no-repeat;
+}
 
+li.service-pro::before, li.installation-pro::before, li.commercial-pro::before, li.residential-pro::before {
+  content:"";
+  margin-right:1em;
+  vertical-align: middle;
+  display:inline-block;
+  height:15px;
+  width: 15px;
+}
+
+li.service-pro::before {
+  background: url('../images/service-icons/gear-service-pro.png') no-repeat center;
+  background-size:cover;
+}
+
+li.installation-pro::before {
+  background: url('../images/service-icons/star-installation-pro.png') no-repeat center;
+  background-size:cover;
+}
+
+li.commercial-pro::before {
+  background: url('../images/service-icons/users-commercial-pro.png') no-repeat center;
+  background-size:cover;
+}
+
+li.residential-pro::before {
+  background: url('../images/service-icons/home-residential-pro.png') no-repeat center;
+  background-size:cover;
+}
 
 /* Buttons */
 
@@ -486,6 +522,18 @@ input[type="text"],input[type="email"], textarea {
   box-sizing:border-box;
 }
 
+#contact-form input[type="text"]:invalid + span, #contact-form input[type="email"]:invalid + span {
+    background-image: url("../images/forms/circle-form.png");
+    
+    /* content:"TESTER"; */
+}
+
+#contact-form input[type="text"]:valid + span, #contact-form input[type="email"]:valid + span {
+  background-image: url("../images/forms/checkmark-circle.png");
+  /* content:"TESTER"; */
+}
+
+
 
 .modal-overlay {
   background-color: rgba(0,0,0,.7);
@@ -496,6 +544,10 @@ input[type="text"],input[type="email"], textarea {
 }
 
 /* Search Filters */
+
+#dealer-count-title {
+  color:var(--second-theme-color);
+}
 
 .search-filters label, .search-filters input[type="checkbox"] {
   cursor:pointer;
@@ -579,7 +631,77 @@ p {
 }
 
 
-@media (max-width: 800px)  {  /* Tablets and undrr */ 
+/* Custom Checkboxes */ 
+
+.checkbox {
+  display: inline-block;
+  margin-right:10px;
+}
+
+.checkbox input[type="checkbox"] {
+  position:absolute;
+  left:-9999px;
+}
+
+.checkbox label {
+  position: relative;
+  display: inline-block;
+  
+  /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
+  padding-left: 22px;
+}
+
+.checkbox label::before,
+.checkbox label::after {
+  position: absolute;
+  content: "";
+  
+  /*Needed for the line-height to take effect*/
+  display: inline-block;
+}
+
+/*Outer box of the fake checkbox*/
+.checkbox label::before{
+  height: 16px;
+  width: 16px;
+  
+  border: 1px solid;
+  left: 0px;
+  border-radius:5px;
+  top: 0px;
+}
+
+/* Check Mark */
+
+.checkbox label::after {
+  height: 9px;
+  width: 9px;
+  
+  border: 5px solid var(--second-theme-color);
+  border-radius:5px;
+  left: 0px;
+  top: 0px;
+}
+
+/*Hide the checkmark by default*/
+.checkbox input[type="checkbox"] + label::after {
+  content: none;
+}
+
+/*Unhide on the checked state*/
+.checkbox input[type="checkbox"]:checked + label::after {
+  content: "";
+}
+
+/* Focus style for accessibility*/
+.checkbox input[type="checkbox"]:focus + label::before {
+  border:1px dotted black;
+}
+
+
+
+
+@media (max-width: 800px)  {  /* Tablets and underrrrrrrr */ 
 
   #dealer-count-title {
     margin-left:10px;
@@ -600,15 +722,15 @@ p {
     border-bottom: none; 
   }
   #filter-results-title::after {
+    font-family:'SSPika';
     margin-left:.5em;
     padding:.5em;
     background-color:var(--third-theme-color);
     border-left: 1px solid #d6d6d6; 
-    content:'▶';
+    content:'▹';
   }
   #filter-results-title.expanded::after {
-    content:'▼';
-    
+    content:'▾'; 
   }
 
 
@@ -734,3 +856,72 @@ p {
 
 }
 
+
+/* Custom Checkboxes 
+
+.checkbox {
+  display: inline-block;
+  margin-right:10px;
+}
+
+.checkbox input[type="checkbox"] {
+  position:absolute;
+  left:-9999px;
+}
+
+.checkbox label {
+  position: relative;
+  display: inline-block;
+  
+  /*16px width of fake checkbox + 6px distance between fake checkbox and text
+  padding-left: 22px;
+}
+
+.checkbox label::before,
+.checkbox label::after {
+  position: absolute;
+  content: "";
+  
+  /*Needed for the line-height to take effect
+  display: inline-block;
+}
+
+/*Outer box of the fake checkbox
+.checkbox label::before{
+  height: 12px;
+  width: 12px;
+  
+  border: 4px solid;
+  left: 0px;
+  border-radius:5px;
+  top: 0px;
+}
+
+/* Check Mark 
+
+.checkbox label::after {
+  height: 12px;
+  width: 12px;
+  
+  border: 4px solid var(--second-theme-color);
+  border-radius:5px;
+  left: 0px;
+  top: 0px;
+}
+
+/*Hide the checkmark by default
+.checkbox input[type="checkbox"] + label::after {
+  content: none;
+}
+
+/*Unhide on the checked state
+.checkbox input[type="checkbox"]:checked + label::after {
+  content: "";
+}
+
+/* Focus style for accessibility
+.checkbox input[type="checkbox"]:focus + label::before {
+  border:4px solid rgb(173, 173, 173);
+}
+
+*/

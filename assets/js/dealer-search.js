@@ -49,7 +49,7 @@
                     function getCertifications() {
                         var allItems = '';
                         for(x=0;x<dealer.certifications.length;x++) {
-                            allItems += '<li>' + dealer.certifications[x] + '</li>'; 
+                            allItems += '<li class="'+ dealer.certifications[x].replace(' ','-').toLowerCase() + '">' + dealer.certifications[x] + '</li>'; 
                         }
                         return allItems;
                     }
@@ -147,7 +147,6 @@
                 
                 $('.contact-form-dealer-name-placeholder').text(dealerName);
                 $('#contact-form-dialog').show();
-                $('#contact-form-name-input').focus();
             });
     
     }
