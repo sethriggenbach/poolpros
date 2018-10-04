@@ -2,24 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
-  <title>Pool Pros: Pool Heroes Near You!</title>
   <meta name="description" content="Pool Pros is your comprehensive source for local Pool Experts">
   <meta name="author" content="Seth Riggenbach">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pool Pros: Pool Heroes Near You!</title>
   <link rel="icon" href="assets/images/icons/favicon.ico" type="image/x-icon" />
-
   <link href="assets/css/fonts/ss-pika/webfonts/ss-pika.css" rel="stylesheet" />
   <link href="assets/css/fonts/open-sans/open-sans.css" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css?v=1.0">
-
-
 </head>
 
 <body>
     <div id="top-header" class="dropshadow"></div>
-
-
 
     <!-- Commercial Dialog Box -->
 
@@ -27,9 +21,11 @@
         <div class="dialog">
             <div class="dialog-header">
                 <span class="icon-close ss-delete" id="commercial-services-dialog-close"></span>
-                <h4>Commercial Services</h4>
+                <h3>Commercial Services</h3>
             </div>
-            <h2 class="centered">These dealers offer unique commercial services not available anywhere else!</h2>
+            <div class="dialog-content">
+                <h3 class="centered">Dealers with this designation offer unique<br>commercial services not available anywhere else!</h3>
+            </div>
         </div>
     </div>
 
@@ -50,8 +46,8 @@
                     <input type="text" id="contact-form-name-input" required> <span class="icon-form-validation"></span>
                 </label>
 
-                <label for="contact-form-phone-input">Phone Number
-                    <input type="text" id="contact-form-phone-input" required><span class="icon-form-validation"></span>
+                <label for="contact-form-phone-input" class="phone-label">Phone Number
+                    <input type="tel" id="contact-form-phone-input" required><span class="icon-form-validation" ></span>
                 </label>
 
                 <label for="contact-form-email-input">Email Address
@@ -79,7 +75,7 @@
 
                 <hr>
                 <p class="centered">
-                    <button type="submit" id="contact-form-submit">Send My Email</button>
+                    <button type="submit" id="contact-form-submit"></button>
                 </p>
             </form>
             <div class="dialog-footer italic">

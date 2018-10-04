@@ -12,12 +12,17 @@
 
 /* Resets */
 
-button, input[type="text"], input[type="submit"] {
+button, input[type="text"], input[type="submit"], input[type="tel"] {
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
   border-radius: 0;
   min-width: 0;
+}
+label {
+  display:block;
+}
+button {
+  background:none;
 }
 
 div {
@@ -34,8 +39,11 @@ input:invalid {
   box-shadow: none !important;
 }
 
-body {
+body, textarea {
   font-family:'OpenSans', Arial, sans-serif;
+}
+
+body {
   display: flex;
   flex-direction: column;
   color: #696969;
@@ -43,7 +51,7 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  margin:3px;
+  margin:5px;
 }
 
 a {
@@ -139,7 +147,7 @@ section {
 #top-header {
   z-index:8;
   box-sizing: border-box;
-  background:white;
+  background-color:white;
   width:100%;
   position:fixed;
   display: flex;
@@ -183,14 +191,6 @@ section {
   height:20px;
 }
 
-.section-image > img {
-  /* max-width: 100%;
-  height:100%; */
-  /* flex-shrink: 1; */
-  max-width: 100%;
-  max-height: 100%;
-  height: inherit !important;
-}
 .flex-float-left {
   margin-right:auto;
 }
@@ -301,22 +301,17 @@ h1 {
   font-weight: bold;
 }
 
-.icon-phone-desktop::before {
+.icon-phone::before {
   content:' '; 
   background-image: url('../images/icons/phone-icon-desktop.png');
   background-size: contain;
-  background-position:top;
+  background-position:center;
   background-repeat:no-repeat;
   display: inline-block;
-  margin-right:10px; 
-  position: relative;
-  top:3px;
-  width:30px;
-  height:30px;
-}
-
-.icon-phone-mobile {
-  background-image: url('../images/icons/phone-icon-mobile.png');
+  margin-right:.25em; 
+  vertical-align: text-top;
+  width:1em;
+  height:100%;
 }
 
 .logo {
@@ -338,7 +333,7 @@ h1 {
 
 li.service-pro::before, li.installation-pro::before, li.commercial-pro::before, li.residential-pro::before {
   content:"";
-  margin-right:1em;
+  margin-right:.5em;
   vertical-align: middle;
   display:inline-block;
   height:15px;
@@ -368,10 +363,10 @@ li.residential-pro::before {
 /* Buttons */
 
 .btn-default {
-  background: #ffffff;
-  color: #4275B0;
+  background-color: #ffffff;
+  color: var(--second-theme-color);
   font-weight: 900;
-  border: 2px solid #4275B0;
+  border: 2px solid var(--second-theme-color);
   border-radius:3px;
   padding:5px;
   transition:.1s ease-in;
@@ -379,9 +374,18 @@ li.residential-pro::before {
 }
 
 .btn-default:hover, .btn-default.active {
-  background: #4275B0;
+  background-color: var(--second-theme-color);
   color: #ffffff;
 }
+
+.btn-dealer-contact {
+  border: 2px solid var(--fifth-theme-color);
+}
+
+.btn-dealer-contact:hover {
+  background-color:var(--fifth-theme-color);
+}
+
 
 /* Lightbox */
 
@@ -402,9 +406,10 @@ li.residential-pro::before {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #ffffff;
-  width:300px;
+  background-color: #ffffff;
+  /* width:300px; */
   width:27%;
+  min-width:300px;
   border-radius: var(--theme-border-radius);
   text-align:center;
   margin:20px 0;
@@ -434,6 +439,10 @@ li.residential-pro::before {
   margin:20px;
 }
 
+.dealer-phone-display {
+  font-size:250%;
+}
+
 .lightbox-footer {
   display: -webkit-box;      
   display: -moz-box;         
@@ -449,13 +458,9 @@ li.residential-pro::before {
 
 .dealer-services-list-wrapper {
   -moz-column-count: 2;
-  -moz-column-gap: 20px;
   -webkit-column-count: 2;
-  -webkit-column-gap: 20px;
   column-count: 2;
-  column-gap: 60px;
   text-align:left;
-
 }
 
 
@@ -481,22 +486,23 @@ li.residential-pro::before {
   display: -webkit-flex;     
   display: flex;
   align-items: center;
-  background:white;
+  background-color:white;
   border:1px solid var(--fourth-theme-color) ;
 }
 
-#dealer-search-form input[type="text"] {
+#dealer-search-form input[type="tel"] {
   flex:2;
   flex-shrink:2;
   margin:0;
   border:0;
   font-size:24px;
+  padding:.5em;
+  height:inherit;
 }
 
-
 #dealer-search-form input[type="submit"] {
-  background-color:none;
   background:none;
+  background-color:none;
   flex:1;
   border:0;
   height:80%;
@@ -506,7 +512,6 @@ li.residential-pro::before {
   background-position: center;
   background-size: contain;
   cursor:pointer;
-
 }
 
 
@@ -527,16 +532,20 @@ li.residential-pro::before {
 #contact-form-submit {
   font-size:150%;
   border:0;
-  background:none;
   font-weight:800;
   cursor:pointer;
+  margin:.25em;
+}
+
+#contact-form-submit::before {
+  content:"Send My Email";
 }
 
 #contact-form-submit:after {
-  content:"";
+  content:" ";
   display:inline-block;
   vertical-align:middle;
-  margin:.75em;
+  margin:0 .75em;
   width:1.25em;
   height:1.25em;
   background-image:url("../images/icons/next-arrow.png");
@@ -550,27 +559,27 @@ li.residential-pro::before {
 }
 
 
-input[type="text"],input[type="email"], textarea {
+#contact-form input[type="text"],input[type="email"],input[type="tel"], textarea {
   height:43px;
   padding:10px;
   font-size:120%;
   width: 100%;
   box-sizing:border-box;
   border:1px solid var(--fourth-theme-color) ;
+  display:block;
 }
 
-#contact-form input[type="text"]:invalid + span, #contact-form input[type="email"]:invalid + span {
-    background-image: url("../images/forms/circle-form.png");
-    border:0;
+#contact-form input[type="tel"], .phone-label  {
+  max-width:15em;
 }
 
-#contact-form input[type="text"]:valid + span, #contact-form input[type="email"]:valid + span {
-  background-image: url("../images/forms/checkmark-circle.png");
-}
 
+/* Get ready.... */
+
+
+/* ...... for the wild stuff ahead .....  */
 
 .icon-form-validation {
-  display:inline-block;
   vertical-align: middle;
   width:20px;
   height:20px;
@@ -580,6 +589,24 @@ input[type="text"],input[type="email"], textarea {
   float:right;
   top:-80px;
   position: relative;
+}
+
+
+/* ...... here goes!  */
+
+#contact-form input[type="text"]:invalid + span, #contact-form input[type="email"]:invalid + span, #contact-form input[type="tel"]:invalid + span {
+    background-image: url("../images/forms/circle-form.png");
+    border:0;
+}
+
+#contact-form input[type="text"]:valid + span, #contact-form input[type="email"]:valid + span, #contact-form input[type="tel"]:valid + span {
+  background-image: url("../images/forms/checkmark-circle.png");
+}
+
+/* Okay, back to reality  */
+
+#mobile-menu-header {
+  display:none;
 }
 
 .modal-overlay {
@@ -613,11 +640,6 @@ input[type="text"],input[type="email"], textarea {
   font-weight:700;
 }
 
-
-#search-filter-list-wrapper {
-
-}
-
 .search-filter-list-item {
   display:inline-block;
 }
@@ -649,6 +671,15 @@ input[type="text"],input[type="email"], textarea {
   left: 50%;
   transform: translate(-50%, -50%);
   position:fixed;
+  max-width:600px;
+}
+
+.dialog p {
+  font-size:120%;
+}
+
+.dialog-content {
+  margin:10px;
 }
 
 .dialog-header {
@@ -785,20 +816,42 @@ p {
   border: 3px solid rgb(65, 65, 65);
 }
 
-.mobile-only {
+
+
+.tap-to-call {
+  font-size:50%;
+  margin:0 .5em;
   display:none;
+  font-weight:600;
 }
 
-
-
 @media (max-width: 800px)  {  /* Tablets and underrrrrrrr */ 
-  .mobile-only {
-    display:block;
+
+  .icon-phone::before {
+    background-image: url('../images/icons/phone-icon-mobile.png');
   }
+
+  .dealer-phone-display {
+    font-size:200%;
+    color:white;
+    background-color:var(--second-theme-color);
+    padding:0 .25em;
+    margin:0 auto;
+  }
+
+  .dealer-phone-display:hover {
+    color:var(--first-theme-color);
+
+  }
+
   #dealer-count-title {
     margin-left:10px;
     font-size:120%;
     flex-grow:2;
+  }
+
+  .tap-to-call {
+    display:inline-block;
   }
 
   #filter-results-title {
@@ -806,7 +859,7 @@ p {
     font-size:120%;
     padding:.5em 0 .5em .5em;
     display:inline-block;
-    background:white;
+    background-color:white;
     border: 1px solid #d6d6d6; 
     margin:0px 10px 0px auto;
   }
@@ -824,8 +877,6 @@ p {
   #filter-results-title.expanded::after {
     content:'▾'; 
   }
-
-
   main {
     padding:0px;
   }
@@ -846,6 +897,9 @@ p {
     position:fixed;
   }
 
+  .dialog-footer {
+   display:none;
+  }
   #top-header {
     padding:10px 2px;
   }
@@ -864,7 +918,7 @@ p {
   #search-filter-list-wrapper {
     display:none;
     margin-top:0;
-    background:white;
+    background-color:white;
     text-align:left;
     width:inherit;
     border: 1px solid #d6d6d6; 
@@ -896,7 +950,7 @@ p {
     top:0;
     left:0;
     z-index:10;
-    background:white;
+    background-color:white;
     margin:0!important;
     padding:0;
   }
@@ -926,11 +980,36 @@ p {
     display:block;
   }
 
+  #mobile-menu-header {
+    display:block;
+  }
+
   #mobile-navigation-close-icon {
     display:inline-block;
   }
   #top-header > * {
     margin:5px;
+  }
+
+  .dealer-footer {
+    display:none;
+  }
+
+  #contact-form {
+    background-color: initial;
+  }
+
+  #contact-form-submit {
+    color:var(--fifth-theme-color);
+    float:right;
+  }
+
+  #contact-form-submit::before {
+    content:"Send";
+  }
+
+  #contact-form-submit::after {
+    content:none;
   }
 
 }
