@@ -6,13 +6,13 @@
   --second-theme-color: #216ddf;
   --third-theme-color: #f6f6f6;
   --fourth-theme-color: #c2c2c2;
-  --fifth-theme-color: #00b0c7;
+  --fifth-theme-color: #02c7c6;
   --theme-border-radius: 5px;
 }
 
 /* Resets */
 
-button, input[type="text"] {
+button, input[type="text"], input[type="submit"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -224,7 +224,7 @@ section {
 }
 
 .navigation-main-list-item a:hover {
-  border-bottom:5px solid #216ddf;
+  border-bottom:5px solid var(--second-theme-color);
 }
 
 h1.light {
@@ -283,9 +283,11 @@ h1 {
 
 /* Icons */
 
-.icon-close::before {
+.icon-close {
   cursor:pointer;
+  font-size:175%;
 }
+
 .icon-info::after {
   cursor: pointer;
   display: inline-block;
@@ -509,11 +511,44 @@ li.residential-pro::before {
 
 
 /* Contact Form */
+#contact-form {
+  margin:10px;
+  padding:10px;
+  background-color: var(--third-theme-color);
+}
+#contact-form-close {
+  float:right;
+}
 
-
-#contact-form label, input {
+#contact-form label, input, textarea {
   margin:10px 0;
 }
+
+#contact-form-submit {
+  font-size:150%;
+  border:0;
+  background:none;
+  font-weight:800;
+  cursor:pointer;
+}
+
+#contact-form-submit:after {
+  content:"";
+  display:inline-block;
+  vertical-align:middle;
+  margin:.75em;
+  width:1.25em;
+  height:1.25em;
+  background-image:url("../images/icons/next-arrow.png");
+  background-position: center;
+  background-size:contain;
+  background-repeat:no-repeat;
+}
+
+#contact-form label {
+  font-weight:800;
+}
+
 
 input[type="text"],input[type="email"], textarea {
   height:43px;
@@ -622,14 +657,7 @@ input[type="text"],input[type="email"], textarea {
   color:white;
 }
 
-#contact-form {
-  margin:10px;
-  padding:10px;
-  background-color: var(--third-theme-color);
-}
-#contact-form-close {
-  float:right;
-}
+
 #commercial-services-dialog-close {
   float:right;
 }
@@ -831,7 +859,6 @@ p {
     margin:0;
     padding:1em 0;
     flex-wrap: wrap;
-    
   }
 
   #search-filter-list-wrapper {
@@ -851,13 +878,6 @@ p {
   .search-filter-list-item {
     display:block;
     margin:1.5em;
-  }
-
-  .section-image > img {
-      /* max-width: 100%; */
-      /* max-width:initial; */
-    display:none;
-    height:initial;
   }
 
   .content {
