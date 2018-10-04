@@ -1,7 +1,5 @@
 (function() {
-
     var dealerData;
-
 
     function ajax_get(url, callback) {
         var xmlhttp = new XMLHttpRequest();
@@ -21,16 +19,10 @@
         xmlhttp.send();
     }
 
-
     ajax_get('assets/js/data/dealers.json', function(data) {
         dealerData = data;
         searchByZip();
     });
-    
-
-
-
-
 
     function searchByZip() {
         
@@ -72,12 +64,11 @@
                     }
 
                     function displayHoursByDay() {
+                        // This is complete overkill  
+
                         var weekDays = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
-
                         var hoursArray = []; // Stores all hours for current dealer
-
                         var continuityTracker = []; // Keeps track of consecutive days with similar hours
-
                         var hoursDisplay = "";
 
                         for(weekDay in dealer.weekHours) {
@@ -112,11 +103,13 @@
                                 </div>
                                 <div class="dealer-content">
                                 <hr>
-                                <a href="tel:${dealer.phone1}"><h1 class="dealer-phone icon-phone-desktop">${dealer.phone1}</h1></a>
+
+                                <a href="tel:${dealer.phone1}" class="icon-phone dealer-phone-display"><span class="tap-to-call">Tap to call</span>${dealer.phone1}</a>
+
                                 <p class="italic">Can't talk now? Click below to send an email</p>
         
                                 <p>
-                                    <button class="btn-default dealer-contact-button" data-dealer-name="${dealer.name}"><span class="ss-mail"></span> Contact This Pro</button>    
+                                    <button class="btn-default btn-dealer-contact" data-dealer-name="${dealer.name}"><span class="ss-mail"></span> Contact This Pro</button>    
                                 </p>
         
                                 <h3>Business Hours</h3>
@@ -142,16 +135,10 @@
             }
             document.getElementById('dealer-container').innerHTML = allListings;
 
-            $('.dealer-contact-button').on('click',function(){
+            $('.btn-dealer-contact').on('click',function(){
                 dealerName = $(this).attr('data-dealer-name');
-                
-                $('.contact-form-dealer-name-placeholder').text(dealerName);
-                $('#contact-form-dialog').addClass("visible");
-            });
 
-            
-            $('.dealer-contact-button').on('click',function(){
-                dealerName = $(this).attr('data-dealer-name');
+                $("#contact-form").trigger('reset');
                 
                 $('.contact-form-dealer-name-placeholder').text(dealerName);
                 $('#contact-form-dialog').addClass("visible");
