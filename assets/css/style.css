@@ -300,7 +300,7 @@ h1 {
 }
 
 .icon-phone::before {
-  content:"\00A0"; 
+  content:"\00A0"; /* Unicode space fixed icon disappearing in chrome, GO FIGURE */
   background: url('../images/icons/phone-icon-desktop.png');
   background-size: contain;
   background-position:center;
@@ -330,32 +330,32 @@ h1 {
 }
 
 li.service-pro::before, li.installation-pro::before, li.commercial-pro::before, li.residential-pro::before {
-  content:"";
+  content:"\00A0";
   margin-right:.5em;
   vertical-align: middle;
   display:inline-block;
-  height:15px;
-  width: 15px;
+  height:100%;
+  width: 1em;
 }
 
 li.service-pro::before {
   background: url('../images/service-icons/gear-service-pro.png') no-repeat center;
-  background-size:cover;
+  background-size:contain;
 }
 
 li.installation-pro::before {
   background: url('../images/service-icons/star-installation-pro.png') no-repeat center;
-  background-size:cover;
+  background-size:contain;
 }
 
 li.commercial-pro::before {
   background: url('../images/service-icons/users-commercial-pro.png') no-repeat center;
-  background-size:cover;
+  background-size:contain;
 }
 
 li.residential-pro::before {
   background: url('../images/service-icons/home-residential-pro.png') no-repeat center;
-  background-size:cover;
+  background-size:contain;
 }
 
 /* Buttons */
@@ -838,8 +838,7 @@ p {
   }
 
   .dealer-phone-display:hover {
-    color:var(--first-theme-color);
-
+    color:inherit;
   }
 
   #dealer-count-title {
