@@ -1,21 +1,20 @@
-
-
+/* Here's all the mobile stuff */
 
 $(document).ready(function(){
     
     var isMobileClient;
+    var clientWidth;
 
     function determineIfMobile(){
-        var clientWidth = window.innerWidth;
+        clientWidth = window.innerWidth;
         
-        if(clientWidth < 800) {
+        if(clientWidth < 801) {
             isMobileClient = true;
         } else {
             isMobileClient = false;
             $('#navigation-main').show();
         }
 
-        console.log(isMobileClient);
     }
 
     $(document).ready(determineIfMobile);
@@ -34,12 +33,22 @@ $(document).ready(function(){
         }
     });
 
+    // Scrolls to dealer contact form on smalll devices, muy importante 
+
+    $('.btn-dealer-contact').on('click', function(){
+        if (clientWidth < 601) {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#contact-form-dialog").offset().top - 10
+            }, 300);
+        }
+    });
+
+    // Operates filter expander 
 
     $('#filter-results-title').on('click', function(){
         $('.mobile-expander-container').toggleClass('expanded');
         $('#search-filter-list-wrapper').toggleClass('expanded');
         $('#filter-results-title').toggleClass('expanded');
     });
-    
 
 });

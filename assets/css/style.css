@@ -95,12 +95,7 @@ section {
   min-height:80vh;
 }
 
-.content {
-  padding:5em;
-  color: white;
-  width:500px;
-  background-color: rgba(0,0,0,.5);
-}
+
 
 #hero-section {
   margin-top:40px;
@@ -111,20 +106,6 @@ section {
   justify-content: center;
   align-items: center;
   color:black;
-}
-
-#dealer-locator-container {
-  padding:5em;
-  background-color: rgba(255,255,255,.7);
-  margin:10px;
-}
-
-#dealer-search-results-section{
-  margin:100px auto;
-  max-width:1300px;
-  justify-content: flex-start;
-  flex-direction: column;
-  box-sizing: border-box;
 }
 
 #pools-and-spas-section {
@@ -143,6 +124,29 @@ section {
   background-color: #2668cb;
   background-image: url('../images/background/services.jpg');
 }
+
+#dealer-locator-container {
+  padding:5em;
+  background-color: rgba(255,255,255,.7);
+  margin:10px;
+}
+
+#dealer-search-results-section{
+  margin:100px auto;
+  max-width:1300px;
+  justify-content: flex-start;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.content {
+  padding:5em;
+  color: white;
+  width:500px;
+  background-color: rgba(0,0,0,.5);
+}
+
+
 
 #top-header {
   z-index:8;
@@ -385,7 +389,7 @@ li.residential-pro::before {
 }
 
 
-/* Lightbox */
+/* Cards */
 
 .cards-container {
   width:100%;
@@ -395,7 +399,7 @@ li.residential-pro::before {
   align-content:stretch;
 }
 
-.lightbox-item {
+.card {
   display: -webkit-box;      
   display: -moz-box;         
   display: -ms-flexbox;     
@@ -411,7 +415,7 @@ li.residential-pro::before {
   text-align:center;
   margin:20px 0;
 }
-.dealer-header {
+.card-header {
   display: -webkit-box;      
   display: -moz-box;         
   display: -ms-flexbox;     
@@ -422,7 +426,7 @@ li.residential-pro::before {
   align-items: center;
   height:20%;
 }
-.dealer-content {
+.card-content {
   display: -webkit-box;      
   display: -moz-box;         
   display: -ms-flexbox;     
@@ -431,7 +435,7 @@ li.residential-pro::before {
   flex-direction: column;
   height:65%;
 }
-.dealer-name {
+.card-title {
   padding:20px;
   margin:20px;
 }
@@ -440,7 +444,7 @@ li.residential-pro::before {
   font-size:250%;
 }
 
-.lightbox-footer {
+.card-footer {
   display: -webkit-box;      
   display: -moz-box;         
   display: -ms-flexbox;     
@@ -571,10 +575,6 @@ li.residential-pro::before {
 }
 
 
-/* Get ready.... */
-
-
-/* ...... for the wild stuff ahead .....  */
 
 .icon-form-validation {
   vertical-align: middle;
@@ -588,15 +588,22 @@ li.residential-pro::before {
   position: relative;
 }
 
+/* Get ready.... */
 
-/* ...... here goes!  */
 
-#contact-form input[type="text"]:invalid + span, #contact-form input[type="email"]:invalid + span, #contact-form input[type="tel"]:invalid + span {
+/* ...... for the wild stuff ahead .....  */
+
+
+#contact-form input[type="text"]:invalid + span, 
+#contact-form input[type="email"]:invalid + span, 
+#contact-form input[type="tel"]:invalid + span {
     background-image: url("../images/forms/circle-form.png");
     border:0;
 }
 
-#contact-form input[type="text"]:valid + span, #contact-form input[type="email"]:valid + span, #contact-form input[type="tel"]:valid + span {
+#contact-form input[type="text"]:valid + span, 
+#contact-form input[type="email"]:valid + span, 
+#contact-form input[type="tel"]:valid + span {
   background-image: url("../images/forms/checkmark-circle.png");
 }
 
@@ -672,13 +679,13 @@ li.residential-pro::before {
   z-index:9999;
   visibility: hidden;
   opacity:0;
+  transition: all 1s cubic-bezier(0,.66,.04,1);
 }
 
 .dialog.visible {
   visibility: visible;
   opacity:1;
 }
-  
 
 .dialog p {
   font-size:120%;
@@ -705,6 +712,10 @@ li.residential-pro::before {
 
 .dialog-footer {
   background-color:var(--third-theme-color);
+}
+
+.dialog-footer p {
+  font-size:90%;
 }
 
 p {
@@ -748,25 +759,25 @@ p {
 
 /*Outer box of the fake checkbox*/
 .checkbox label::before{
-  height: 16px;
-  width: 16px;
+  height: 9px;
+  width: 9px;
   
-  border: 1px solid;
-  left: 0px;
+  border:4px solid;
   border-radius:5px;
+  left: 0px;
   top: 0px;
 }
 
 /* Check Mark */
 
 .checkbox label::after {
-  height: 9px;
-  width: 9px;
+  height: 7px;
+  width: 7px;
   
-  border: 5px solid var(--second-theme-color);
+  border: 6px solid var(--second-theme-color);
   border-radius:5px;
-  left: 0px;
-  top: 0px;
+  left: -1px;
+  top: -1px;
 }
 
 /*Hide the checkmark by default*/
@@ -779,9 +790,9 @@ p {
   content: "";
 }
 
-/* Focus style for accessibility*/
-.checkbox input[type="checkbox"]:focus + label::before {
-  border:1px dotted black;
+/* Focus style for accessibility and keyboard use*/
+.checkbox input[type="checkbox"]:focus + label::before, .checkbox input[type="checkbox"]:hover  {
+  background-color:#bdbdbd;
 }
 
 /* Custom Radio Buttons */ 
@@ -804,7 +815,6 @@ p {
   font-weight:700;
   cursor:pointer;
 }
-
 
 /*Hide the checkmark by default*/
 .radio-button input[type="radio"] + label {
@@ -831,22 +841,11 @@ p {
   font-weight:600;
 }
 
-@media (max-width: 800px)  {  /* Tablets and underrrrrrrr */ 
+@media (max-width: 800px)  {  /* Slates and Tablettes  */ 
 
-  .icon-phone::before {
-    background-image: url('../images/icons/phone-icon-mobile.png');
-  }
-
-  .dealer-phone-display {
-    font-size:200%;
-    color:white;
-    background-color:var(--second-theme-color);
-    padding:0 .25em;
-    margin:0 auto;
-  }
 
   .dealer-phone-display:hover {
-    color:inherit;
+    color:white
   }
 
   #dealer-count-title {
@@ -855,9 +854,6 @@ p {
     flex-grow:2;
   }
 
-  .tap-to-call {
-    display:inline-block;
-  }
 
   #filter-results-title {
     cursor:pointer;
@@ -885,27 +881,7 @@ p {
   main {
     padding:0px;
   }
-  .lightbox-item {
-    width:90%;
-  }
 
-  .dialog {
-    display: -webkit-box;      
-    display: -moz-box;         
-    display: -ms-flexbox;     
-    display: -webkit-flex;     
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    top: 10%;
-    left: 10%;
-    transform: translate(-5%, -5%);
-    position:absolute;
-  }
-
-  .dialog-footer {
-   display:none;
-  }
   #top-header {
     padding:10px 2px;
   }
@@ -997,9 +973,59 @@ p {
     margin:5px;
   }
 
-  .dealer-footer {
-    display:none;
+
+
+}
+
+@media (max-width: 600px)  {  /* Cellular devices */ 
+
+  /* Smaller images for smaller load times  */
+   
+  #hero-section {
+    background-image: url('../images/background/mobile/pool.jpg');
   }
+  
+  #pools-and-spas-section {
+    background-image: url('../images/background/mobile/lady.jpg');
+  }
+  #supplies-section {
+    background-image: url('../images/background/mobile/supplies.jpg');
+  }
+  #resources-section {
+    background-image: url('../images/background/mobile/resources.jpg');
+  }
+  #services-section {
+    background-image: url('../images/background/mobile/services.jpg');
+  }
+
+  #contact-form-dialog {
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:95%;
+    position:absolute;
+  }
+
+  .dialog-footer {
+   display:none;
+  }
+
+  .icon-phone::before {
+    background-image: url('../images/icons/phone-icon-mobile.png');
+  }
+
+  .dealer-phone-display {
+    font-size:200%;
+    color:white;
+    background-color:var(--second-theme-color);
+    padding:0 .25em;
+    margin:0 auto;
+  }
+
+  .tap-to-call {
+    display:inline-block;
+  }
+
 
   #contact-form {
     background-color: initial;
@@ -1018,5 +1044,93 @@ p {
     content:none;
   }
 
-}
+    /* Bunch of stuff to change style of custom radio button for mobile only - WHY RED VENTURES, WHY??? */ 
 
+  .radio-button {
+    display: inline-block;
+    margin:0px;
+  }
+
+  .radio-button input[type="checkbox"] {
+    position:absolute;
+    left:-9999px;
+  }
+
+  .radio-button label {
+    position: relative;
+    display: inline-block;
+    background:none;
+    padding-left: 22px;
+  }
+
+  .radio-button label::before,
+  .radio-button label::after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+  }
+
+  /*Outer box of the fake checkbox*/
+  .radio-button label::before{
+    height: 9px;
+    width: 9px;
+    
+    border:4px solid grey;
+    border-radius:5px;
+    left: 0px;
+    top: 0px;
+  }
+
+  /* Check Mark */
+
+  .radio-button label::after {
+    height: 7px;
+    width: 7px;
+    
+    border: 6px solid var(--second-theme-color);
+    border-radius:5px;
+    left: -1px;
+    top: -1px;
+  }
+
+    
+  /* Hide the checkmark by default*/
+  .radio-button input[type="radio"] + label {
+    background-color:initial;
+  }
+  
+  /*Unhide on the checked state*/
+  .radio-button input[type="radio"]:checked + label {
+    background-color:initial;
+    color: #696969;
+  }
+
+  /*Hide the checkmark by default*/
+  .radio-button input[type="radio"] + label::after {
+    content: none;
+  }
+
+  /*Unhide on the checked state*/
+  .radio-button input[type="radio"]:checked + label::after {
+    content: "";
+  }
+
+  /* Focus style for accessibility and keyboard use*/
+  .radio-button input[type="radio"]:focus + label::before {
+    background-color:#bdbdbd;
+  }
+
+  .radio-button input[type="radio"]:focus + label, .radio-button input[type="radio"] + label:hover  {
+    border: none;
+  }
+
+  .radio-button label {
+    padding:3px 20px;
+    border: none;
+    background-color:initial;
+  }
+
+
+
+
+}

@@ -19,7 +19,7 @@
         xmlhttp.send();
     }
 
-    ajax_get('assets/js/data/dealers.json', function(data) {
+    ajax_get("assets/js/data/dealers.json", function(data) {
         dealerData = data;
         searchByZip();
     });
@@ -39,32 +39,23 @@
                     totalDealersFound += 1;
             
                     function getCertifications() {
-                        var allItems = '';
+                        var allItems = "";
                         for(x=0;x<dealer.certifications.length;x++) {
-                            allItems += '<li class="'+ dealer.certifications[x].replace(' ','-').toLowerCase() + '">' + dealer.certifications[x] + '</li>'; 
+                            allItems += "<li class='"+ dealer.certifications[x].replace(" ","-").toLowerCase() + "'>" + dealer.certifications[x] + "</li>"; 
                         }
                         return allItems;
                     }
 
                     function getFilterCriteria() {
-                        var allItems = '';
+                        var allItems = "";
                         for(x=0;x<dealer.certifications.length;x++) {
-                            allItems += ' ' + dealer.certifications[x].replace(' ','-').toLowerCase(); 
-                        }
-                        return allItems;
-                    }
-
-        
-                    function getDealerHours() {
-                        var allItems = '';
-                        for(weekDay in dealer.weekHours) {
-                            allItems += '<li>' + weekDay.toUpperCase() + ': ' + dealer.weekHours[weekDay] + '</li>'; 
+                            allItems += " " + dealer.certifications[x].replace(" ","-").toLowerCase(); 
                         }
                         return allItems;
                     }
 
                     function displayHoursByDay() {
-                        // This is complete overkill  
+                        // This is complete overkill, but I really wanted to group hours together regardless of differences day-to-day, had fun with this!
 
                         var weekDays = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
                         var hoursArray = []; // Stores all hours for current dealer
@@ -73,7 +64,7 @@
 
                         for(weekDay in dealer.weekHours) {
                             var hours = dealer.weekHours[weekDay] || "Closed";
-                        
+                    
                             hoursArray.push(hours);
                         }
 
@@ -83,10 +74,10 @@
                             } else {
                                 if (continuityTracker.length>0 ) {
                                     continuityTracker.push([i]);
-                                    hoursDisplay += '<tr><td>' + weekDays[ [continuityTracker.shift() ] ] + ' - ' + weekDays[ [continuityTracker.pop()] ] + "</td><td>" + hoursArray[i] + '</td></tr>';
+                                    hoursDisplay += "<tr><td>" + weekDays[ [continuityTracker.shift() ] ] + " - " + weekDays[ [continuityTracker.pop()] ] + "</td><td>" + hoursArray[i] + "</td></tr>";
                                     continuityTracker = [];
                                 } else {
-                                    hoursDisplay += '<tr><td>' + weekDays[i] + "</td><td>" + hoursArray[i] +  '</td></tr>';
+                                    hoursDisplay += "<tr><td>" + weekDays[i] + "</td><td>" + hoursArray[i] +  "</td></tr>";
                                 }
 
                             }
@@ -95,13 +86,13 @@
                         return hoursDisplay;
                     }
 
-                    // template literal is faster than appending a bunch of children!
+                    // template literal is more performant than appending a bunch of children! 
                     var template = `
-                            <div class="lightbox-item dropshadow ${getFilterCriteria()}">
-                                <div class="dealer-header">
-                                    <h1 class="dealer-name light">${dealer.name}</h1>
+                            <div class="card dropshadow ${getFilterCriteria()}">
+                                <div class="card-header">
+                                    <h1 class="card-title light">${dealer.name}</h1>
                                 </div>
-                                <div class="dealer-content">
+                                <div class="card-content">
                                 <hr>
 
                                 <a href="tel:${dealer.phone1}" class="icon-phone dealer-phone-display"><span class="tap-to-call">Tap to call</span>${dealer.phone1}</a>
@@ -118,7 +109,7 @@
                                 </table>
                                 </div>
         
-                                    <div class="lightbox-footer">
+                                    <div class="card-footer">
                                         <ul class="dealer-services-list-wrapper">
                                                 ${getCertifications()}                
                                         </ul>
@@ -129,55 +120,49 @@
 
                 }
 
-                $('#user-zip-placeholder').text(userZip);
-                $('#dealers-found-placeholder').text(totalDealersFound);
+                $("#user-zip-placeholder").text(userZip);
+                $("#dealers-found-placeholder").text(totalDealersFound);
                
             }
-            document.getElementById('dealer-container').innerHTML = allListings;
+            document.getElementById("dealer-container").innerHTML = allListings;
 
-            $('.btn-dealer-contact').on('click',function(){
-                dealerName = $(this).attr('data-dealer-name');
-
-                $("#contact-form").trigger('reset');
-                
-                $('.contact-form-dealer-name-placeholder').text(dealerName);
-                $('#contact-form-dialog').addClass("visible");
-                $('.modal-overlay').addClass("visible");
+            $(".btn-dealer-contact").on("click",function(){
+                dealerName = $(this).attr("data-dealer-name");
+                $("#contact-form").trigger("reset");
+                $(".contact-form-dealer-name-placeholder").text(dealerName);
+                $("#contact-form-dialog").addClass("visible");
+                $(".modal-overlay").addClass("visible");
             });
-
-            document.getElementById('contact-form-close').addEventListener("click", function(){
-                $('#contact-form-dialog').removeClass("visible")
-                $('.modal-overlay').removeClass("visible");
+            $("#contact-form-close").on("click", function(){
+                $("#contact-form-dialog").removeClass("visible")
+                $(".modal-overlay").removeClass("visible");
             }); 
-
-            $('#load-commercial-services-dialog').on('click',function(){
-                $('#commercial-services-dialog').addClass("visible");
-                $('.modal-overlay').addClass("visible");
+            $("#load-commercial-services-dialog").on("click",function(){
+                $("#commercial-services-dialog").addClass("visible");
+                $(".modal-overlay").addClass("visible");
             });
-
-            $('#commercial-services-dialog-close').on('click',function(){
-                $('#commercial-services-dialog').removeClass("visible");
-                $('.modal-overlay').removeClass("visible");
+            $("#commercial-services-dialog-close").on("click",function(){
+                $("#commercial-services-dialog").removeClass("visible");
+                $(".modal-overlay").removeClass("visible");
                 
             });
-
-           $('.modal-overlay').on('click', function(){
-               $(this).removeClass('visible');
-               $('.dialog').removeClass('visible');
-           });
-    
+            $(".modal-overlay").on("click", function(){
+                $(this).removeClass("visible");
+                $("#commercial-services-dialog").removeClass("visible");
+                $("#contact-form-dialog").removeClass("visible")
+            });
     }
 
 
         
-        $('.search-filter-list-item input').on('change', function(){
+        $(".search-filter-list-item input").on("change", function(){
             filterResultsByService();
         });
 
         function filterResultsByService() {
              
-            var allCheckboxes = document.getElementsByClassName('filter-checkbox');
-            var allDealers = document.getElementsByClassName('lightbox-item');
+            var allCheckboxes = document.getElementsByClassName("filter-checkbox");
+            var allDealers = document.getElementsByClassName("card");
             var userSelection = []; 
 
             // populate array from checkbox selections
@@ -188,7 +173,6 @@
                     userSelection.push(checkBox.value);
                 }
             }
-        
                     for (i = 0; i < allDealers.length; i++) {
                         var currentDealer = allDealers[i];
                         var totalMatch = true;
