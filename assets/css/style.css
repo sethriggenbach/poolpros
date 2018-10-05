@@ -201,6 +201,7 @@ section {
 
 /* Main Nav */
 
+
 .navigation-main-list-wrapper {
   align-items: center;
   display: flex;
@@ -299,9 +300,11 @@ h1 {
 }
 
 .icon-phone::before {
-  content:' '; 
-  background: url('../images/icons/phone-icon-desktop.png') no-repeat center;
+  content:"\00A0"; 
+  background: url('../images/icons/phone-icon-desktop.png');
   background-size: contain;
+  background-position:center;
+  background-repeat:no-repeat;
   display: inline-block;
   margin-right:.25em; 
   vertical-align: text-top;
