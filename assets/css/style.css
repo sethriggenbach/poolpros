@@ -393,7 +393,6 @@ li.residential-pro::before {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-content:stretch;
-
 }
 
 .lightbox-item {
@@ -670,7 +669,16 @@ li.residential-pro::before {
   transform: translate(-50%, -50%);
   position:fixed;
   max-width:600px;
+  z-index:9999;
+  visibility: hidden;
+  opacity:0;
 }
+
+.dialog.visible {
+  visibility: visible;
+  opacity:1;
+}
+  
 
 .dialog p {
   font-size:120%;
@@ -880,6 +888,7 @@ p {
   .lightbox-item {
     width:90%;
   }
+
   .dialog {
     display: -webkit-box;      
     display: -moz-box;         
@@ -891,7 +900,7 @@ p {
     top: 10%;
     left: 10%;
     transform: translate(-5%, -5%);
-    position:fixed;
+    position:absolute;
   }
 
   .dialog-footer {

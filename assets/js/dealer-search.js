@@ -142,27 +142,29 @@
                 
                 $('.contact-form-dealer-name-placeholder').text(dealerName);
                 $('#contact-form-dialog').addClass("visible");
+                $('.modal-overlay').addClass("visible");
             });
 
             document.getElementById('contact-form-close').addEventListener("click", function(){
                 $('#contact-form-dialog').removeClass("visible")
+                $('.modal-overlay').removeClass("visible");
             }); 
 
             $('#load-commercial-services-dialog').on('click',function(){
                 $('#commercial-services-dialog').addClass("visible");
+                $('.modal-overlay').addClass("visible");
             });
 
             $('#commercial-services-dialog-close').on('click',function(){
                 $('#commercial-services-dialog').removeClass("visible");
+                $('.modal-overlay').removeClass("visible");
+                
             });
 
-           $('.modal-overlay').on('click', function(e){
+           $('.modal-overlay').on('click', function(){
                $(this).removeClass('visible');
+               $('.dialog').removeClass('visible');
            });
-
-           $('.modal-overlay *').on('click', function(e){
-            e.stopPropagation();
-        });
     
     }
 
