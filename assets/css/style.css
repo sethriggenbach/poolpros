@@ -300,10 +300,8 @@ h1 {
 
 .icon-phone::before {
   content:' '; 
-  background-image: url('../images/icons/phone-icon-desktop.png');
-  background-size: cover;
-  background-position:center;
-  background-repeat:no-repeat;
+  background: url('../images/icons/phone-icon-desktop.png') no-repeat center;
+  background-size: contain;
   display: inline-block;
   margin-right:.25em; 
   vertical-align: text-top;
