@@ -301,14 +301,14 @@ h1 {
 .icon-phone::before {
   content:' '; 
   background-image: url('../images/icons/phone-icon-desktop.png');
-  background-size: contain;
+  background-size: cover;
   background-position:center;
   background-repeat:no-repeat;
   display: inline-block;
   margin-right:.25em; 
   vertical-align: text-top;
   width:1em;
-  height:inherit;
+  height:100%;
 }
 
 .logo {
