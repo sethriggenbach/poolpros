@@ -36,9 +36,8 @@ $(document).ready(function(){
     // Scrolls to dealer contact form on smalll devices, muy importante 
 
     $('.btn-dealer-contact').on('click', function(){
-        determineIfMobile();
         if (clientWidth < 601) {
-            $([document.documentElement, document.body]).animate({
+            $("html,body").animate({
                 scrollTop: $("#contact-form-dialog").offset().top - 10
             }, 300);
         }
