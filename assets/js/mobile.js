@@ -33,17 +33,6 @@ $(document).ready(function(){
         }
     });
 
-    // Scrolls to dealer contact form on smalll devices, muy importante 
-
-    $('.btn-dealer-contact').on('click', function(){
-
-        if (window.innerWidth < 601) {
-            $("html,body").animate({
-                scrollTop: $("#contact-form-dialog").offset().top - 10
-            }, 300);
-        }
-    });
-
     // Operates filter expander 
 
     $('#filter-results-title').on('click', function(){

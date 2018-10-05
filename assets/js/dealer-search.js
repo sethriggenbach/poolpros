@@ -126,12 +126,24 @@
             }
             document.getElementById("dealer-container").innerHTML = allListings;
 
+
+            function scrollToFormIfMobile(){
+                // Scrolls to dealer contact form on smalll devices, muy importante 
+                    if (window.innerWidth < 601) {
+                        $("html,body").animate({
+                            scrollTop: $("#contact-form-dialog").offset().top - 10
+                        }, 300);
+                    }
+            }
+
+
             $(".btn-dealer-contact").on("click",function(){
                 dealerName = $(this).attr("data-dealer-name");
                 $("#contact-form").trigger("reset");
                 $(".contact-form-dealer-name-placeholder").text(dealerName);
                 $("#contact-form-dialog").addClass("visible");
                 $(".modal-overlay").addClass("visible");
+                scrollToFormIfMobile();
             });
             $("#contact-form-close").on("click", function(){
                 $("#contact-form-dialog").removeClass("visible")
