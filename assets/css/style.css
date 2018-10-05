@@ -308,7 +308,7 @@ h1 {
   margin-right:.25em; 
   vertical-align: text-top;
   width:1em;
-  height:1em;
+  height:inherit;
 }
 
 .logo {
