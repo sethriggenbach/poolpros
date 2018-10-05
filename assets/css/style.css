@@ -95,16 +95,19 @@ section {
 /* CSS|4 - Text
 *******************************************************************************/
 
-a, a:link, a:active, a:visited {
+a {
   text-decoration: none;
-  color: var(--first-theme-color);
   font-weight: 800;
   transition: .1s;
   transition-timing-function: cubic-bezier(.04,.77,0,1.01);
 }
-a:hover {
-  color:var(--second-theme-color);
-}
+
+a:link  {color: var(--first-theme-color) }
+a:active { color: var(--first-theme-color) }
+a:hover { color:var(--second-theme-color) }
+a:visited { color: var(--first-theme-color) }
+
+
 body, textarea {
   font-family:'OpenSans', Arial, sans-serif;
 }
@@ -190,7 +193,6 @@ p {
 /* CSS|6 - Content
 *******************************************************************************/
 
-
 /* Sections */
 
 .content {
@@ -202,7 +204,7 @@ p {
 
 #hero-section {
   margin-top:40px;
-  background-image: url('../images/background/pool.jpg');
+  background-image: url('../images/background/hero.jpg');
   height:100vh;
   display:flex;
   flex-direction: column;
@@ -406,26 +408,20 @@ p {
   box-sizing: border-box;
 }
 
-
-
 /* Search Filters */
 
 #dealer-count-title {
   color:var(--second-theme-color);
 }
-
 .search-filters label, .search-filters input[type="checkbox"] {
   cursor:pointer;
 }
-
 .search-filters label {
   font-weight:700;
 }
-
 .search-filter-list-item {
   display:inline-block;
 }
-
 .search-filters {
   display: -webkit-box;      
   display: -moz-box;         
@@ -582,8 +578,6 @@ p {
   max-width:15em;
 }
 
-
-
 .icon-form-validation {
   vertical-align: middle;
   width:20px;
@@ -612,7 +606,7 @@ p {
   background-image: url("../images/forms/checkmark-circle.png");
 }
 
-/* Okay, back to reality  */
+/* Okay, back to your regularly scheduled programming  */
 
 
 /* CSS|9 - Icons
@@ -649,7 +643,10 @@ p {
   height:100%;
 }
 
-li.service-pro::before, li.installation-pro::before, li.commercial-pro::before, li.residential-pro::before {
+li.service-pro::before, 
+li.installation-pro::before, 
+li.commercial-pro::before, 
+li.residential-pro::before {
   content:"\00A0";
   margin-right:.5em;
   vertical-align: middle;
@@ -857,81 +854,15 @@ li.residential-pro::before {
 }
 
 @media (max-width: 800px)  {  /* Slates and Tablettes  */ 
-  .dealer-phone-display:hover {
-    color:white
-  }
-
-  #dealer-count-title {
-    margin-left:10px;
-    font-size:120%;
-    flex-grow:2;
-  }
-  #filter-results-title {
-    cursor:pointer;
-    font-size:120%;
-    padding:.5em 0 .5em .5em;
-    display:inline-block;
-    background-color:white;
-    border: 1px solid #d6d6d6; 
-    margin:0px 10px 0px auto;
-  }
-  #filter-results-title.expanded {
-    border-bottom: none; 
-  }
-  #filter-results-title::after {
-    font-family:'SSPika';
-    margin-left:.5em;
-    padding:.5em;
-    background-color:var(--third-theme-color);
-    border-left: 1px solid #d6d6d6; 
-    content:'▹';
-  }
-  #filter-results-title.expanded::after {
-    content:'▾'; 
-  }
-  main {
-    padding:0px;
-  }
-
   #top-header {
     padding:10px 2px;
   }
-
-  .search-filters .vertical-rule {
-    display:none;
+  #top-header > * {
+    margin:5px;
   }
-
-  .search-filters {
-    width:100%;
-    margin:0;
-    padding:1em 0;
-    flex-wrap: wrap;
-  }
-
-  #search-filter-list-wrapper {
-    display:none;
-    margin-top:0;
-    background-color:white;
-    text-align:left;
-    width:inherit;
-    border: 1px solid #d6d6d6; 
-    margin:0 10px;
-  }
-
-  #search-filter-list-wrapper.expanded {
-    display:block;
-  }
-
-  .search-filter-list-item {
-    display:block;
-    margin:1.5em;
-  }
-
-  .content {
-    width:initial;
-    padding:50px;
-    margin:10px;
-    background-color: rgba(0,0,0,.5);
+  
+  main {
+    padding:0px;
   }
 
   #navigation-main {
@@ -980,12 +911,69 @@ li.residential-pro::before {
   #mobile-navigation-close-icon {
     display:inline-block;
   }
-  #top-header > * {
-    margin:5px;
+  .dealer-phone-display:hover {
+    color:white
   }
 
-
-
+  #dealer-count-title {
+    margin-left:10px;
+    font-size:120%;
+    flex-grow:2;
+  }
+  #filter-results-title {
+    cursor:pointer;
+    font-size:120%;
+    padding:.5em 0 .5em .5em;
+    display:inline-block;
+    background-color:white;
+    border: 1px solid #d6d6d6; 
+    margin:0px 10px 0px auto;
+  }
+  #filter-results-title.expanded {
+    border-bottom: none; 
+  }
+  #filter-results-title::after {
+    font-family:'SSPika';
+    margin-left:.5em;
+    padding:.5em;
+    background-color:var(--third-theme-color);
+    border-left: 1px solid #d6d6d6; 
+    content:'▹';
+  }
+  #filter-results-title.expanded::after {
+    content:'▾'; 
+  }
+  .search-filters .vertical-rule {
+    display:none;
+  }
+  .search-filters {
+    width:100%;
+    margin:0;
+    padding:1em 0;
+    flex-wrap: wrap;
+  }
+  #search-filter-list-wrapper {
+    display:none;
+    margin-top:0;
+    background-color:white;
+    text-align:left;
+    width:inherit;
+    border: 1px solid #d6d6d6; 
+    margin:0 10px;
+  }
+  #search-filter-list-wrapper.expanded {
+    display:block;
+  }
+  .search-filter-list-item {
+    display:block;
+    margin:1.5em;
+  }
+  .content {
+    width:initial;
+    padding:50px;
+    margin:10px;
+    background-color: rgba(0,0,0,.5);
+  }
 }
 
 @media (max-width: 600px)  {  /* Cellular devices */ 
@@ -993,7 +981,7 @@ li.residential-pro::before {
   /* Smaller images for smaller load times  */
    
   #hero-section {
-    background-image: url('../images/background/mobile/pool.jpg');
+    background-image: url('../images/background/mobile/hero.jpg');
   }
   
   #pools-and-spas-section {
@@ -1009,6 +997,10 @@ li.residential-pro::before {
     background-image: url('../images/background/mobile/services.jpg');
   }
 
+  .dialog-footer {
+    display:none;
+   }
+
   #contact-form-dialog {
     top: 70%;
     left: 50%;
@@ -1016,27 +1008,6 @@ li.residential-pro::before {
     width:95%;
     position:absolute;
   }
-
-  .dialog-footer {
-   display:none;
-  }
-
-  .icon-phone::before {
-    background-image: url('../images/icons/phone-icon-mobile.png');
-  }
-
-  a.dealer-phone-display {
-    font-size:200%;
-    color:white;
-    background-color:var(--second-theme-color);
-    padding:0 .25em;
-    margin:0 auto;
-  }
-
-  .tap-to-call {
-    display:inline-block;
-  }
-
 
   #contact-form {
     background-color: initial;
@@ -1053,6 +1024,22 @@ li.residential-pro::before {
 
   #contact-form-submit::after {
     content:none;
+  }
+
+  .icon-phone::before {
+    background-image: url('../images/icons/phone-icon-mobile.png');
+  }
+
+  a.dealer-phone-display {
+    font-size:200%;
+    color:white;
+    background-color:var(--second-theme-color);
+    padding:0 .25em;
+    margin:0 auto;
+  }
+
+  .tap-to-call {
+    display:inline-block;
   }
 
     /* Bunch of stuff to change style of custom radio button for mobile only - WHY RED VENTURES, WHY??? */ 
@@ -1085,7 +1072,6 @@ li.residential-pro::before {
   .radio-button label::before{
     height: 9px;
     width: 9px;
-    
     border:4px solid grey;
     border-radius:5px;
     left: 0px;
@@ -1097,14 +1083,12 @@ li.residential-pro::before {
   .radio-button label::after {
     height: 7px;
     width: 7px;
-    
     border: 6px solid var(--second-theme-color);
     border-radius:5px;
     left: -1px;
     top: -1px;
   }
 
-    
   /*Reset*/
   .radio-button input[type="radio"] + label {
     background-color:initial;
