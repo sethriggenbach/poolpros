@@ -393,7 +393,7 @@ a.dealer-phone-display {
   position:fixed;
   height:100vh;
   width:100vw;
-  z-index:8;
+  z-index:8888;
   opacity:0;
   visibility: hidden;
   transition: all 1s cubic-bezier(0,.66,.04,1);
