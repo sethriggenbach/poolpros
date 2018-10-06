@@ -1145,11 +1145,7 @@ a.btn-hero::after {
   }
 
   #contact-form-dialog {
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width:95%;
-    position:absolute;
+    margin-top:60px;
   }
     /* Bunch of stuff to change style of custom radio button for mobile only - WHY RED VENTURES, WHY??? */ 
 
