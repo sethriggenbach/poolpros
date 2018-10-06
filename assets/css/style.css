@@ -1129,7 +1129,7 @@ a.btn-hero::after {
   }
 
   a.dealer-phone-display {
-    font-size:200%;
+    font-size:180%;
     color:white;
     background-color:var(--second-theme-color);
     padding:0 .25em;
