@@ -844,7 +844,7 @@ li.residential-pro::before {
   transition:.1s ease-in;
   cursor:pointer;
 }
-.btn-default:hover, .btn-default.active {
+.btn-default:hover {
   background-color: var(--second-theme-color);
   color: #ffffff;
 }
@@ -941,6 +941,10 @@ a.btn-hero::after {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+  }
+
+  .footer hr {
+    display:none;
   }
 }
 
@@ -1120,6 +1124,10 @@ a.btn-hero::after {
   #contact-form-submit::after {
     content:none;
   }
+
+  .footer .horizontal-link-wrapper {
+    font-size:100%;
+  }
 }
 
 @media (max-width: 600px)  {  /* Cellular devices */ 
@@ -1193,7 +1201,12 @@ a.btn-hero::after {
   #contact-form-dialog {
     margin-top:60px;
   }
-    /* Bunch of stuff to change style of custom radio button for mobile only - WHY RED VENTURES, WHY??? */ 
+  
+  .footer .horizontal-link-wrapper {
+    font-size:80%;
+  }
+
+  /* Bunch of stuff to change style of custom radio button for mobile only - WHY RED VENTURES, WHY??? */ 
 
   .radio-button {
     display: inline-block;
