@@ -72,6 +72,7 @@ ul {
 
 main {
   flex: 1;
+  flex-shrink:1;
   box-sizing: border-box;
 }
 body {
@@ -108,12 +109,13 @@ a:hover { color:var(--second-theme-color) }
 a:visited { color: var(--first-theme-color) }
 
 
-body, textarea {
+body, html, textarea, input, button, label {
   font-family:'OpenSans', Arial, sans-serif;
 }
 body {
   color: #696969;
-  font-size:70%;
+  font-size:75%;
+  
 }
 h1 {
   font-size:250%;
@@ -148,6 +150,7 @@ p {
 *******************************************************************************/
 
 #top-header {
+  top:0;
   z-index:8;
   box-sizing: border-box;
   background-color:white;
@@ -156,24 +159,26 @@ p {
   display: flex;
   align-items: center;
   flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: space-between;
 }
 #top-header > * {
-  margin:7px 15px;
+  margin:1.75em 2em;
 }
 .navigation-main-list-wrapper {
   align-items: center;
   display: flex;
-  flex: 0 0 auto;
-  flex-shrink:0;
+  /* flex: 0 0 auto; */
+  flex-shrink:2;
   list-style: none;
 }
 .navigation-main-list-item {
-  margin: 0px 20px;
+  margin: 0px 2em;
   flex-shrink: 0;
 }
 .navigation-main-list-item a {
-  padding: 5px;
+  font-weight:700;
+  padding-bottom:.5em;
   transition: .3s;
   transition-timing-function: cubic-bezier(0,.66,.04,1);
 }
@@ -196,6 +201,9 @@ p {
 /* Sections */
 
 .content {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
   padding:5em;
   color: white;
   width:500px;
@@ -203,7 +211,7 @@ p {
 }
 
 #hero-section {
-  margin-top:40px;
+  margin-top:0px;
   background-image: url('../images/background/hero.jpg');
   height:100vh;
   display:flex;
@@ -253,7 +261,7 @@ p {
   justify-content: space-between;
   background-color: #ffffff;
   width:27%;
-  min-width:300px;
+  min-width:350px;
   border-radius: var(--theme-border-radius);
   text-align:center;
   margin:20px 0;
@@ -283,8 +291,9 @@ p {
   margin:20px;
 }
 
-.dealer-phone-display {
+a.dealer-phone-display {
   font-size:250%;
+  color:black;
 }
 
 .card-footer {
@@ -306,6 +315,12 @@ p {
   column-count: 2;
   text-align:left;
 }
+
+.dealer-services-list-wrapper li {
+  margin:0 1em;
+
+}
+
 
 .dealer-hours-display {
   margin:0 auto;
@@ -401,23 +416,27 @@ p {
 }
 
 #dealer-search-results-section{
-  margin:100px auto;
-  max-width:1300px;
+  margin-top:150px;
+  max-width:100%;
   justify-content: flex-start;
   flex-direction: column;
   box-sizing: border-box;
+  background: url('../images/background/water-image.png');
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+.search-results-content {
+  max-width:1300px;
+  margin:0 auto;
 }
 
 /* Search Filters */
-
 #dealer-count-title {
   color:var(--second-theme-color);
 }
 .search-filters label, .search-filters input[type="checkbox"] {
   cursor:pointer;
-}
-.search-filters label {
-  font-weight:700;
 }
 .search-filter-list-item {
   display:inline-block;
@@ -451,13 +470,14 @@ p {
   font-weight:normal;
 }
 .footer-top {
-  flex: 1 0 auto;
+  padding:10px;
   background-color: var(--first-theme-color);
 }
 .footer-bottom {
   background-color: var(--second-theme-color);
 }
 .footer-logo img {
+  margin:5px;
   max-width: 150px;
   min-width: 75px;
   width:100%;
@@ -465,11 +485,13 @@ p {
 
 .social-media-list-wrapper li {
   display:inline-block;
-  margin:10px;
+  margin:5px 10px;
+  font-weight:600;
+  font-size:120%;
 }
 
 .social-media-list-wrapper img {
-  height:20px;
+  height:1em;
 }
 
 .flex-float-left {
@@ -534,16 +556,24 @@ p {
   margin:10px 0;
 }
 
+#contact-form label.optional::before {
+  content:'Optional';
+  font-weight: 400;
+  font-style: italic!important;
+  vertical-align: middle;
+  float:right;
+}
+
 #contact-form-submit {
-  font-size:150%;
+  font-size:100%;
   border:0;
-  font-weight:800;
+  font-weight:600;
   cursor:pointer;
   margin:.25em;
 }
 
 #contact-form-submit::before {
-  content:"Send My Email";
+  content:"Send my email";
 }
 
 #contact-form-submit:after {
@@ -560,7 +590,7 @@ p {
 }
 
 #contact-form label {
-  font-weight:800;
+  font-weight:600;
 }
 
 
@@ -573,6 +603,12 @@ p {
   border:1px solid var(--fourth-theme-color) ;
   display:block;
 }
+
+#contact-form textarea  {
+  height:initial;
+}
+
+
 
 #contact-form input[type="tel"], .phone-label  {
   max-width:15em;
@@ -587,6 +623,7 @@ p {
   background-repeat:no-repeat;
   float:right;
   top:-80px;
+  margin-bottom:-80px; /* Remove empty space */
   position: relative;
 }
 
@@ -706,13 +743,14 @@ li.residential-pro::before {
 
 /*Outer box of the fake checkbox*/
 .checkbox label::before{
-  height: 9px;
-  width: 9px;
+  height: 17px;
+  width: 17px;
   
-  border:4px solid;
-  border-radius:5px;
-  left: 0px;
-  top: 0px;
+  border:1px solid lightgray;
+  background:white;
+  border-radius:4px;
+  left: -4px;
+  top: -1px;
 }
 
 /* Check Mark */
@@ -721,10 +759,10 @@ li.residential-pro::before {
   height: 7px;
   width: 7px;
   
-  border: 6px solid var(--second-theme-color);
-  border-radius:5px;
-  left: -1px;
-  top: -1px;
+  border: 7px solid var(--second-theme-color);
+  border-radius:4px;
+  left: -5px;
+  top: -2px;
 }
 
 /*Hide the checkmark by default*/
@@ -739,7 +777,7 @@ li.residential-pro::before {
 
 /* Focus style for accessibility and keyboard use*/
 .checkbox input[type="checkbox"]:focus + label::before, .checkbox input[type="checkbox"]:hover  {
-  background-color:#bdbdbd;
+  border: 1px dotted lightgray;
 }
 
 /* Custom Radio Buttons */ 
@@ -757,7 +795,7 @@ li.residential-pro::before {
 .radio-button label {
   display: inline-block;
   padding:3px 20px;
-  border: 3px solid grey;
+  border: 2px solid grey;
   border-radius:5px;
   font-weight:700;
   cursor:pointer;
@@ -776,7 +814,7 @@ li.residential-pro::before {
 
 /* Focus style for accessibility*/
 .radio-button input[type="radio"]:focus + label, .radio-button input[type="radio"] + label:hover  {
-  border: 3px solid rgb(65, 65, 65);
+  border: 2px solid rgb(65, 65, 65);
 }
 
 
@@ -786,11 +824,11 @@ li.residential-pro::before {
 
 .btn-default {
   background-color: #ffffff;
-  color: var(--second-theme-color);
-  font-weight: 900;
+  color: var(--first-theme-color);
+  font-weight: 700;
   border: 2px solid var(--second-theme-color);
   border-radius:3px;
-  padding:5px;
+  padding:.5em 1em;
   transition:.1s ease-in;
   cursor:pointer;
 }
@@ -798,6 +836,13 @@ li.residential-pro::before {
   background-color: var(--second-theme-color);
   color: #ffffff;
 }
+a.btn-hero {
+  color: var(--second-theme-color);
+}
+a.btn-hero::after {
+  content:' Find a Pool Pro'
+}
+
 .btn-dealer-contact {
   border: 2px solid var(--fifth-theme-color);
 }
@@ -899,6 +944,10 @@ li.residential-pro::before {
     font-weight:400;
     padding:20px;
    }
+   a.btn-hero::after {
+    content:' Find a Pro';
+    text-transform:uppercase;
+  }
 
  #hamburger {
     display:block;
@@ -970,7 +1019,7 @@ li.residential-pro::before {
   }
   .content {
     width:initial;
-    padding:50px;
+    padding:1em;
     margin:10px;
     background-color: rgba(0,0,0,.5);
   }
@@ -995,6 +1044,12 @@ li.residential-pro::before {
   }
   #services-section {
     background-image: url('../images/background/mobile/services.jpg');
+  }
+  .content {
+    width:initial;
+    padding:1em;
+    margin:10px;
+    background-color: rgba(0,0,0,.5);
   }
 
   .dialog-footer {
@@ -1038,6 +1093,9 @@ li.residential-pro::before {
     margin:0 auto;
   }
 
+  .card {
+    width:90%;
+  }
   .tap-to-call {
     display:inline-block;
   }
