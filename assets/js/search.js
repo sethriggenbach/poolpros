@@ -95,7 +95,7 @@
                                 <div class="card-content">
                                 <hr>
 
-                                <a href="tel:${dealer.phone1}" class="icon-phone dealer-phone-display"><span class="tap-to-call">Tap to call</span>${dealer.phone1}</a>
+                                <a href="tel:${dealer.phone1}" class="icon-phone dealer-phone-display"><span class="tap-to-call">Tap to call</span>${dealer.phone1.replace(/-/g, ".")}</a>
 
                                 <p class="italic">Can't talk now? Click below to send an email</p>
         
@@ -165,20 +165,19 @@
             });
 
             $("#contact-form").on("submit", function(e){
-                e.preventDefault();
-                alert(`
+                var cornyJoke = `
                 Did you hear about the restaurant on the moon?
                 
                 Great food.....
                 
-                
-                
-                ......no atmosphere.
-                `)
+                ......no atmosphere. ;)
+                `
+
+                e.preventDefault();
+                alert(cornyJoke);
 
                 $("#contact-form-dialog").removeClass("visible")
                 $(".modal-overlay").removeClass("visible");
-                
             });
     }
 
