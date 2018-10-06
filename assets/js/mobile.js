@@ -10,6 +10,7 @@ $(document).ready(function(){
         
         if(clientWidth < 801) {
             isMobileClient = true;
+            $('#navigation-main').hide();
         } else {
             isMobileClient = false;
             $('#navigation-main').show();
