@@ -495,14 +495,15 @@ a.dealer-phone-display {
 }
 
 .horizontal-link-wrapper {
-  margin:0
+  margin:1em;
 }
 .horizontal-link-wrapper li {
   display:inline-block;
 }
 
 .horizontal-link-wrapper li:not(:first-child):before  {
-  content:" | ";
+  content:"|";
+  margin:0 1em;
 }
 
 .flex-float-left {
