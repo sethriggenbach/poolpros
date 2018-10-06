@@ -40,23 +40,23 @@
             <form id="contact-form">
  
                 <label for="contact-form-name-input">
-                    First and Last Name
+                    First and last name
                     <input type="text" id="contact-form-name-input" required> <span class="icon-form-validation"></span>
                 </label>
 
-                <label for="contact-form-phone-input" class="phone-label">Phone Number
+                <label for="contact-form-phone-input" class="phone-label">Phone number
                     <input type="tel" id="contact-form-phone-input" required><span class="icon-form-validation" ></span>
                 </label>
 
-                <label for="contact-form-email-input">Email Address
+                <label for="contact-form-email-input">Email address
                     <input type="email" id="contact-form-email-input" required><span class="icon-form-validation"></span>
                 </label>
 
-                <label for="contact-form-comments-input">Comments or Questions
+                <label for="contact-form-comments-input"  class="optional">Comments or questions
                     <textarea id="contact-form-comments-input"></textarea>
                 </label>
 
-                <label>Do you currently own a pool or spa?</label>
+                <label class="optional">Do you currently own a pool or spa?</label>
    
                 <div>
                     <div class="radio-button">
@@ -90,44 +90,46 @@
         <!-- Dealer Search Results -->
 
         <section id="dealer-search-results-section">
-            <div class="search-filters">
-                <h2 id="dealer-count-title"><span id="dealers-found-placeholder"></span> Dealers in <span id="user-zip-placeholder"></span></h2>
-                <div class="vertical-rule"></div>
+            <div class="search-results-content">
+                <div class="search-filters">
+                    <h2 id="dealer-count-title"><span id="dealers-found-placeholder"></span> Dealers in <span id="user-zip-placeholder"></span></h2>
+                    <div class="vertical-rule"></div>
 
-                    <h2 id="filter-results-title">Filter Results</h2>
-                    <ul id="search-filter-list-wrapper">
-                    <li class="search-filter-list-item">
-                        <div class="checkbox">
-                            <input type="checkbox" class="filter-checkbox" value="service-pro" id="service-pro-checkbox">
-                            <label for="service-pro-checkbox" class="bold">Service</label>
-                        </div>
-                    </li>
-                    <li class="search-filter-list-item">
-                        <div class="checkbox">
-                            <input type="checkbox" class="filter-checkbox" value="installation-pro" id="installation-pro-checkbox">
-                            <label for="installation-pro-checkbox" class="bold">Installation</label>
-                        </div>
-                    </li>
-                    <li class="search-filter-list-item">
-                        <div class="checkbox">
-                            <input type="checkbox" class="filter-checkbox" value="residential-pro" id="residential-pro-checkbox">
-                            <label for="residential-pro-checkbox" class="bold">Residential</label>
-                        </div>
-                    </li>
+                        <h2 id="filter-results-title">Filter Results</h2>
+                        <ul id="search-filter-list-wrapper">
+                        <li class="search-filter-list-item">
+                            <div class="checkbox">
+                                <input type="checkbox" class="filter-checkbox" value="service-pro" id="service-pro-checkbox">
+                                <label for="service-pro-checkbox">Service</label>
+                            </div>
+                        </li>
+                        <li class="search-filter-list-item">
+                            <div class="checkbox">
+                                <input type="checkbox" class="filter-checkbox" value="installation-pro" id="installation-pro-checkbox">
+                                <label for="installation-pro-checkbox">Installation</label>
+                            </div>
+                        </li>
+                        <li class="search-filter-list-item">
+                            <div class="checkbox">
+                                <input type="checkbox" class="filter-checkbox" value="residential-pro" id="residential-pro-checkbox">
+                                <label for="residential-pro-checkbox">Residential</label>
+                            </div>
+                        </li>
 
-                    <li class="search-filter-list-item">
-                        <div class="checkbox">
-                            <input type="checkbox" class="filter-checkbox" value="commercial-pro" id="commercial-pro-checkbox" >
-                            <label for="commercial-pro-checkbox" class="bold">Commercial</label>
-                        </div>
+                        <li class="search-filter-list-item">
+                            <div class="checkbox">
+                                <input type="checkbox" class="filter-checkbox" value="commercial-pro" id="commercial-pro-checkbox" >
+                                <label for="commercial-pro-checkbox">Commercial</label>
+                            </div>
+                            
+                            <span class="icon-info" id="load-commercial-services-dialog"></span>
+                        </li>
                         
-                        <span class="icon-info" id="load-commercial-services-dialog"></span>
-                    </li>
-                    
-                </ul>
-            
+                    </ul>
+                
+                </div>
+                <div class="cards-container" id="dealer-container"></div>
             </div>
-            <div class="cards-container" id="dealer-container"></div>
         </section>
     </main>
 
