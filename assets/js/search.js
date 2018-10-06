@@ -129,7 +129,7 @@
 
             function scrollToFormIfMobile(){
                 // Scrolls to dealer contact form on smalll devices, muy importante 
-                    if (window.innerWidth < 601) {
+                    if (window.innerWidth < 801) {
                         $("html,body").animate({
                             scrollTop: $("#contact-form-dialog").offset().top - 10
                         }, 300);
