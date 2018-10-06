@@ -86,7 +86,6 @@ section {
   justify-content: space-between;
   align-items: stretch;
   margin:0;
-  padding:100px auto;
   width:100%;
   background-repeat: no-repeat;
   background-position: center top;
@@ -149,9 +148,7 @@ p {
 
 /* CSS|5 - Navigation
 *******************************************************************************/
-
 #top-header {
-  top:0;
   z-index:8;
   box-sizing: border-box;
   background-color:white;
@@ -169,7 +166,7 @@ p {
 .navigation-main-list-wrapper {
   align-items: center;
   display: flex;
-  /* flex: 0 0 auto; */
+  flex: 0 0 auto;
   flex-shrink:2;
   list-style: none;
 }
@@ -212,8 +209,8 @@ p {
 }
 
 #hero-section {
-  margin-top:0px;
   background-image: url('../images/background/hero.jpg');
+  margin-top:40px;
   height:100vh;
   display:flex;
   flex-direction: column;
@@ -920,11 +917,10 @@ a.btn-hero::after {
     position:fixed;
     width: 100%;
     height:auto;
-    top:0;
-    left:0;
     z-index:10;
     background-color:white;
     margin:0!important;
+    top:0;
     padding:0;
     border-top:5px solid var(--fifth-theme-color);
     border-bottom:5px solid var(--fifth-theme-color);
@@ -986,6 +982,7 @@ a.btn-hero::after {
     display:inline-block;
     color:var(--fifth-theme-color);
   }
+
   .dealer-phone-display:hover {
     color:white
   }
@@ -1085,6 +1082,7 @@ a.btn-hero::after {
    
   #hero-section {
     background-image: url('../images/background/mobile/hero.jpg');
+    margin:0;
   }
   
   #pools-and-spas-section {
@@ -1101,11 +1099,29 @@ a.btn-hero::after {
   }
   .content {
     width:initial;
-    padding:1em;
+    padding:60px 10px;
     margin:10px;
     background-color: rgba(0,0,0,.5);
   }
 
+  #dealer-locator-container {
+    padding:1em;
+    margin:10px;
+  }
+
+  .search-results-content {
+    padding-top:0px;
+    max-width:1300px;
+    margin:0;
+  }
+
+  .cards-container {
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
   
 
   .icon-phone::before {
@@ -1119,9 +1135,10 @@ a.btn-hero::after {
     padding:0 .25em;
     margin:0 auto;
   }
-
   .card {
-    width:90%;
+    width:initial;
+    min-width:initial;
+    margin:10px;
   }
   .tap-to-call {
     display:inline-block;
