@@ -58,6 +58,7 @@ div {
 }
 h1,h2,h3,h4,h5,h6 {
   margin:5px;
+  font-weight:600;
 }
 label {
   display:block;
@@ -113,7 +114,7 @@ body, html, textarea, input, button, label {
   font-family:'OpenSans', Arial, sans-serif;
 }
 body {
-  color: #696969;
+  color: #555555;
   font-size:75%;
   
 }
@@ -416,7 +417,7 @@ a.dealer-phone-display {
 }
 
 #dealer-search-results-section{
-  margin-top:150px;
+  margin-top:100px;
   max-width:100%;
   justify-content: flex-start;
   flex-direction: column;
@@ -427,6 +428,7 @@ a.dealer-phone-display {
 }
 
 .search-results-content {
+  padding-top:100px;
   max-width:1300px;
   margin:0 auto;
 }
@@ -668,7 +670,7 @@ a.dealer-phone-display {
 }
 
 .icon-phone::before {
-  content:"\00A0"; /* Unicode space fixed icon disappearing in chrome, GO FIGURE */
+  content:"\00A0"; /* Magic unicode space */
   background: url('../images/icons/phone-icon-desktop.png');
   background-size: contain;
   background-position:center;
@@ -891,6 +893,8 @@ a.btn-hero::after {
   cursor:pointer;
 }
 
+
+
 .tap-to-call {
   font-size:50%;
   margin:0 .5em;
@@ -922,6 +926,11 @@ a.btn-hero::after {
     background-color:white;
     margin:0!important;
     padding:0;
+    border-top:5px solid var(--fifth-theme-color);
+    border-bottom:5px solid var(--fifth-theme-color);
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.51);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.51);
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.51);
   }
   
   .navigation-main-list-wrapper {
@@ -932,7 +941,6 @@ a.btn-hero::after {
   .navigation-main-list-item {
     display:block;
     margin:2px 0;
-
   }
   
   .navigation-main-list-item a {
@@ -944,7 +952,24 @@ a.btn-hero::after {
     font-weight:400;
     padding:20px;
    }
-   a.btn-hero::after {
+
+   .navigation-main-list-item a:hover {
+      border:none;
+   }
+
+  .navigation-main-list-item a::after {
+    content:"\00A0"; /* Magic unicode space */
+    float:right;
+    margin-right:2em;
+    width:.75em;
+    height:100%; 
+    background-image:url("../images/icons/next-arrow.png");
+    background-position: center;
+    background-size:contain;
+    background-repeat:no-repeat;
+   }
+   
+  a.btn-hero::after {
     content:' Find a Pro';
     text-transform:uppercase;
   }
@@ -959,6 +984,7 @@ a.btn-hero::after {
 
   #mobile-navigation-close-icon {
     display:inline-block;
+    color:var(--fifth-theme-color);
   }
   .dealer-phone-display:hover {
     color:white
