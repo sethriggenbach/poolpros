@@ -895,10 +895,11 @@ a.btn-hero::after {
   display:none;
   width:30px;
   height:30px;
-  margin:0 10px;
+  padding:0 10px;
   background-image: url('../images/icons/menu-icon-mobile.png');
   background-position: center center;
-  background-size: cover;
+  background-repeat:no-repeat;
+  background-size: contain;
   cursor:pointer;
 }
 .tap-to-call {
@@ -1176,7 +1177,6 @@ a.btn-hero::after {
     flex-direction: column;
     justify-content: space-evenly;
   }
-  
 
   .icon-phone::before {
     background-image: url('../images/icons/phone-icon-mobile.png');
@@ -1187,7 +1187,7 @@ a.btn-hero::after {
     color:white;
     background-color:var(--second-theme-color);
     padding:0 .25em;
-    margin:0 auto;
+    margin:.75em auto;
   }
   .card {
     width:initial;
