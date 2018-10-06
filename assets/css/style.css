@@ -1049,6 +1049,34 @@ a.btn-hero::after {
     margin:10px;
     background-color: rgba(0,0,0,.5);
   }
+  .dialog-footer {
+    display:none;
+   }
+
+  #contact-form-dialog {
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:95%;
+    position:absolute;
+  }
+
+  #contact-form {
+    background-color: initial;
+  }
+
+  #contact-form-submit {
+    color:var(--fifth-theme-color);
+    float:right;
+  }
+
+  #contact-form-submit::before {
+    content:"Send";
+  }
+
+  #contact-form-submit::after {
+    content:none;
+  }
 }
 
 @media (max-width: 600px)  {  /* Cellular devices */ 
@@ -1078,34 +1106,7 @@ a.btn-hero::after {
     background-color: rgba(0,0,0,.5);
   }
 
-  .dialog-footer {
-    display:none;
-   }
-
-  #contact-form-dialog {
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width:95%;
-    position:absolute;
-  }
-
-  #contact-form {
-    background-color: initial;
-  }
-
-  #contact-form-submit {
-    color:var(--fifth-theme-color);
-    float:right;
-  }
-
-  #contact-form-submit::before {
-    content:"Send";
-  }
-
-  #contact-form-submit::after {
-    content:none;
-  }
+  
 
   .icon-phone::before {
     background-image: url('../images/icons/phone-icon-mobile.png');
