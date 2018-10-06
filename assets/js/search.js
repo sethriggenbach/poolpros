@@ -117,25 +117,12 @@
                             </div>    
                         `
                     allListings += template;
-
                 }
-
                 $("#user-zip-placeholder").text(userZip);
                 $("#dealers-found-placeholder").text(totalDealersFound);
-               
             }
+
             document.getElementById("dealer-container").innerHTML = allListings;
-
-
-            function scrollToFormIfMobile(){
-                // Scrolls to dealer contact form on smalll devices, muy importante 
-                    if (window.innerWidth < 801) {
-                        $("html,body").animate({
-                            scrollTop: $("#contact-form-dialog").offset().top - 10
-                        }, 300);
-                    }
-            }
-
 
             $(".btn-dealer-contact").on("click",function(){
                 dealerName = $(this).attr("data-dealer-name");
@@ -170,7 +157,7 @@
                 
                 Great food.....
                 
-                ......no atmosphere
+                ......no atmosphere. ;)
                 `
 
                 e.preventDefault();
@@ -181,46 +168,45 @@
             });
     }
 
-
         
-        $(".search-filter-list-item input").on("change", function(){
-            filterResultsByService();
-        });
+    $(".search-filter-list-item input").on("change", function(){
+        filterResultsByService();
+    });
 
-        function filterResultsByService() {
-             
-            var allCheckboxes = document.getElementsByClassName("filter-checkbox");
-            var allDealers = document.getElementsByClassName("card");
-            var userSelection = []; 
+    function filterResultsByService() {
+            
+        var allCheckboxes = document.getElementsByClassName("filter-checkbox");
+        var allDealers = document.getElementsByClassName("card");
+        var userSelection = []; 
 
-            // populate array from checkbox selections
+        // populate array from checkbox selections
 
-            for (i=0;i<allCheckboxes.length;i++) {
-                var checkBox = allCheckboxes[i];
-                if (checkBox.checked) {
-                    userSelection.push(checkBox.value);
-                }
+        for (i=0;i<allCheckboxes.length;i++) {
+            var checkBox = allCheckboxes[i];
+            if (checkBox.checked) {
+                userSelection.push(checkBox.value);
             }
-                    for (i = 0; i < allDealers.length; i++) {
-                        var currentDealer = allDealers[i];
-                        var totalMatch = true;
-
-                        // test all checkbox filters against dealer classes                        
-                        for (x=0;x<userSelection.length;x++) {
-                            
-                            if ( currentDealer.classList.contains(userSelection[x]) ) { 
-                               
-                            } else {
-                                totalMatch = false;
-                            }
-                        }
-                        
-                        // only display dealer if dealer contains all classes selected
-                        if (totalMatch == true) {
-                            currentDealer.style.display = "";
-                        } else {
-                            currentDealer.style.display = "none";
-                        }
-                }
         }
+                for (i = 0; i < allDealers.length; i++) {
+                    var currentDealer = allDealers[i];
+                    var totalMatch = true;
+
+                    // test all checkbox filters against dealer classes                        
+                    for (x=0;x<userSelection.length;x++) {
+                        
+                        if ( currentDealer.classList.contains(userSelection[x]) ) { 
+                            
+                        } else {
+                            totalMatch = false;
+                        }
+                    }
+                    
+                    // only display dealer if dealer contains all classes selected
+                    if (totalMatch == true) {
+                        currentDealer.style.display = "";
+                    } else {
+                        currentDealer.style.display = "none";
+                    }
+            }
+    }
 })();
