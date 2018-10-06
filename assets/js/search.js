@@ -166,7 +166,7 @@
                 
                 Great food.....
                 
-                ......no atmosphere. ;)
+                ......no atmosphere
                 `
 
                 e.preventDefault();
