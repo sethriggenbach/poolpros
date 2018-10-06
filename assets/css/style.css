@@ -149,6 +149,7 @@ p {
 /* CSS|5 - Navigation
 *******************************************************************************/
 #top-header {
+  top:3em;
   z-index:8;
   box-sizing: border-box;
   background-color:white;
@@ -491,6 +492,17 @@ a.dealer-phone-display {
 
 .social-media-list-wrapper img {
   height:1em;
+}
+
+.horizontal-link-wrapper {
+  margin:0
+}
+.horizontal-link-wrapper li {
+  display:inline-block;
+}
+
+.horizontal-link-wrapper li:not(:first-child):before  {
+  content:" | ";
 }
 
 .flex-float-left {
@@ -878,7 +890,6 @@ a.btn-hero::after {
   display:none;
   padding:10px 15px;
 }
-
 #hamburger {
   display:none;
   width:30px;
@@ -889,9 +900,6 @@ a.btn-hero::after {
   background-size: cover;
   cursor:pointer;
 }
-
-
-
 .tap-to-call {
   font-size:50%;
   margin:0 .5em;
@@ -899,8 +907,45 @@ a.btn-hero::after {
   font-weight:600;
 }
 
+@media (min-width: 800px) {
+  #switching-header-footer-links {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:8;
+    text-align:right;
+    box-sizing: border-box;
+    background:var(--first-theme-color);
+    padding:0;
+    margin:0;
+    font-size:90%;
+  }
+  
+  #switching-header-footer-links li:before {
+  content:none;
+  }
+  
+  #switching-header-footer-links li {
+    margin:1em;
+  }
+
+  #switching-header-footer-links a.external-link::after {
+    content:"\00A0";
+    display:inline-block;
+    width:1em;
+    margin:0 1em;
+    height:100%;
+    background:url("../images/icons/external-link.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
 @media (max-width: 800px)  {  /* Slates and Tablettes  */ 
   #top-header {
+    top:0;
     padding:10px 2px;
   }
   #top-header > * {
