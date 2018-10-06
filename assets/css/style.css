@@ -739,8 +739,6 @@ li.residential-pro::before {
 .checkbox label {
   position: relative;
   display: inline-block;
-  
-  /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
   padding-left: 22px;
 }
 
@@ -748,16 +746,13 @@ li.residential-pro::before {
 .checkbox label::after {
   position: absolute;
   content: "";
-  
-  /*Needed for the line-height to take effect*/
   display: inline-block;
 }
 
-/*Outer box of the fake checkbox*/
+/* Unchecked Checkbox */
 .checkbox label::before{
   height: 17px;
   width: 17px;
-  
   border:1px solid lightgray;
   background:white;
   border-radius:4px;
@@ -765,29 +760,27 @@ li.residential-pro::before {
   top: -1px;
 }
 
-/* Check Mark */
-
+/* Checked styling */
 .checkbox label::after {
   height: 7px;
   width: 7px;
-  
   border: 7px solid var(--second-theme-color);
   border-radius:4px;
   left: -5px;
   top: -2px;
 }
 
-/*Hide the checkmark by default*/
+/* Hide Check */
 .checkbox input[type="checkbox"] + label::after {
   content: none;
 }
 
-/*Unhide on the checked state*/
+/* Show Check */
 .checkbox input[type="checkbox"]:checked + label::after {
   content: "";
 }
 
-/* Focus style for accessibility and keyboard use*/
+/* Focus style for accessibility / keyboard use */
 .checkbox input[type="checkbox"]:focus + label::before, .checkbox input[type="checkbox"]:hover  {
   border: 1px dotted lightgray;
 }
@@ -813,12 +806,12 @@ li.residential-pro::before {
   cursor:pointer;
 }
 
-/*Hide the checkmark by default*/
+/* Radio Styling */
 .radio-button input[type="radio"] + label {
   background-color:#efefef;
 }
 
-/*Unhide on the checked state*/
+/* Selected */
 .radio-button input[type="radio"]:checked + label {
   background-color:var(--fifth-theme-color);
   color:white;
@@ -1154,7 +1147,6 @@ a.btn-hero::after {
   }
   .content {
     width:initial;
-    /* padding:60px 10px; */
     margin:60px 10px;
     background-color: rgba(0,0,0,.5);
   }
@@ -1177,6 +1169,7 @@ a.btn-hero::after {
     flex-direction: column;
     justify-content: space-evenly;
   }
+  
 
   .icon-phone::before {
     background-image: url('../images/icons/phone-icon-mobile.png');
@@ -1206,7 +1199,7 @@ a.btn-hero::after {
     font-size:80%;
   }
 
-  /* Bunch of stuff to change style of custom radio button for mobile only - WHY RED VENTURES, WHY??? */ 
+  /* Bunch of stuff to change style of custom radio button for mobile only - WHY RED VENTURES, WHY!? :p */ 
 
   .radio-button {
     display: inline-block;
@@ -1232,7 +1225,7 @@ a.btn-hero::after {
     display: inline-block;
   }
 
-  /*Outer box of the fake checkbox*/
+  /* Unchecked Styling */
   .radio-button label::before{
     height: 9px;
     width: 9px;
@@ -1243,7 +1236,6 @@ a.btn-hero::after {
   }
 
   /* Check Mark */
-
   .radio-button label::after {
     height: 7px;
     width: 7px;
@@ -1264,12 +1256,13 @@ a.btn-hero::after {
     color: #696969;
   }
 
-  /*Hide when unchecked*/
+  /* Hide Check */
   .radio-button input[type="radio"] + label::after {
     content: none;
   }
 
-  /*Unhide when checked*/
+
+  /* Show Check */
   .radio-button input[type="radio"]:checked + label::after {
     content: "";
   }
@@ -1289,3 +1282,4 @@ a.btn-hero::after {
     background-color:initial;
   }
 }
+
