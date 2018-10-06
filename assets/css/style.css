@@ -1099,8 +1099,8 @@ a.btn-hero::after {
   }
   .content {
     width:initial;
-    padding:60px 10px;
-    margin:10px;
+    /* padding:60px 10px; */
+    margin:60px 10px;
     background-color: rgba(0,0,0,.5);
   }
 
@@ -1144,6 +1144,13 @@ a.btn-hero::after {
     display:inline-block;
   }
 
+  #contact-form-dialog {
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:95%;
+    position:absolute;
+  }
     /* Bunch of stuff to change style of custom radio button for mobile only - WHY RED VENTURES, WHY??? */ 
 
   .radio-button {
